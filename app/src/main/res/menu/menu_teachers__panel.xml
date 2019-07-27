@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bayazid.cpik_present_system.Auth_Profile.Teachers_Panel">
+    <item
+        android:id="@+id/action_SignOut"
+        android:orderInCategory="100"
+        android:title="@string/btn_logout_from_account"
+        app:showAsAction="never"
+        />
+</menu>

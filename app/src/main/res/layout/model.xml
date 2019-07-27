@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="5dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="10"
+    android:padding="3dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="start"
+        android:layout_marginStart="5dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Name : "
+                android:textColor="#FF5722"
+                android:textStyle="bold|italic"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/agency"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="STD NAme"
+                android:id="@+id/std_full_name"
+                android:lines="1"
+
+                android:textColor="#673AB7"
+                android:textStyle="bold|italic"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity=""
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2FC23910">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="College Roll : "
+                android:textColor="#2196F3"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                android:fontFamily="@font/agency"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Roll : "
+                android:textColor="#2196F3"
+                android:textSize="20sp"
+                android:textStyle="italic|bold"
+                android:id="@+id/std_roll" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2FFF5722">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Board Roll : "
+                android:textColor="#2196F3"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                android:fontFamily="@font/agency"
+                />
+            <TextView
+                android:id="@+id/b_roll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Roll : "
+                android:textColor="#2196F3"
+                android:textSize="20sp"
+                android:textStyle="italic|bold"
+               />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Registration :  "
+                android:textStyle="italic"
+                android:textSize="18sp"
+                android:fontFamily="@font/agency"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Registration : "
+                android:textStyle="italic|bold"
+                android:textSize="18sp"
+                android:id="@+id/std_reg_number" />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+        <!--<com.kyleduo.switchbutton.SwitchButton-->
+
+            <!--style="@style/SwitchButtonStyle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--tools:ignore="RtlHardcoded"/>-->
+
+         <com.bayazid.librarycpik.ToggleSwitchView.SwitchButton
+             android:id="@+id/togglebtn_std_attendene"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             card_view:sb_shadow_color="@color/Black"
+             card_view:sb_checked_color="@color/green1"
+           card_view:sb_uncheckcircle_color="@color/red1"
+
+
+            />
+         <!--<com.greetty.recycleviewdemo.view.SwitchButton2-->
+        <!--android:id="@+id/sb2_select"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginEnd="15dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent" />-->
+
+        <!--<com.greetty.recycleviewdemo.view.MyToggleButton-->
+        <!--android:id="@+id/mtb_toggle"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginEnd="15dp"/>-->
+
+        <!--<ToggleButton-->
+        <!--android:id="@+id/toggle_btn"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:layout_marginEnd="20dp"-->
+        <!--android:clickable="true"-->
+        <!--android:visibility="gone"-->
+        <!--android:button="@drawable/selector_switch_button"-->
+        <!--android:textOff=""-->
+        <!--android:textOn=""-->
+        <!--android:layout_toLeftOf="@id/mtb_toggle"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="0dp" />-->
+
+
+
+    </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Auth_Profile.Teachers_Panel"
+    tools:showIn="@layout/activity_teachers__panel">
+<LinearLayout
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Button
+
+        android:padding="10dp"
+        android:id="@+id/take_attendance_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Take Attendance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/theme_button"
+        android:textColor="@color/White"/>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/view_full_semester_button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+
+        android:background="@drawable/theme_button"
+        android:textColor="@color/White"
+        android:text="View full Semester"
+        app:layout_constraintEnd_toEndOf="@+id/take_attendance_button"
+        app:layout_constraintHorizontal_bias="0.461"
+        />
+
+    <Button
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/theme_button"
+        android:textColor="@color/White"
+        android:id="@+id/attendance_book_button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+
+        android:text="View Attendance Book"
+        />
+    <Button
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/theme_button"
+        android:textColor="@color/White"
+        android:id="@+id/add_stdunts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+
+        android:text="Add New Student"
+        />
+
+
+
+</LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

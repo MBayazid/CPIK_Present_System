@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.0'
+    defaultConfig {
+        applicationId "com.bayazid.cpik_present_system"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        useLibrary 'org.apache.http.legacy'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13-beta-3'
+    //noinspection GradleCompatible
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+//horijontal Calender
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    implementation 'com.daasuu:EasingInterpolator:1.0.0'
+    implementation 'devs.mulham.horizontalcalendar:horizontalcalendar:1.1.7'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
+    //Android Support Design Library
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //fire BAse Dependencies
+    implementation "com.facebook.android:facebook-android-sdk:4.42.0"
+    implementation "com.firebaseui:firebase-ui-auth:4.3.2"
+    implementation 'com.google.firebase:firebase-firestore:17.1.2'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
+
+
+    // circular imageview
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+    //Volly for JSON PARSE
+    implementation 'com.android.volley:volley:1.1.1'
+
+
+
+
+    implementation project(path: ':librarycpik')
+
+
+}

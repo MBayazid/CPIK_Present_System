@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Teachears_Function.Create_Student">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:gravity="center">
+           <LinearLayout
+               android:id="@+id/linearLayout2"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               app:layout_constraintTop_toTopOf="parent"
+               android:background="@color/blue1"
+               >
+               <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                   android:id="@+id/calendarView"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentBottom="true"
+                   android:background="@color/AliceBlue"
+                   android:fadingEdge="vertical"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.0"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:orientation="horizontal"
+                   android:paddingStart="@dimen/dimen_10dp"
+                   android:paddingEnd="@dimen/dimen_10dp"
+                   android:weightSum="3">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:drawableStart="@drawable/ic_chevron_left_black_24dp"
+                       android:gravity="center"
+                       android:text="Day Before"
+                       android:textColor="@color/black_semi_transparent" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:drawableTop="@drawable/ic_arrow_drop_up_black_24dp"
+                       android:gravity="center"
+                       android:text="Today"
+                       android:textColor="@color/black_semi_transparent" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                       android:gravity="center"
+                       android:text="Day After"
+                       android:textColor="@color/black_semi_transparent" />
+
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="368dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="8dp"
+               android:gravity="center"
+               android:orientation="vertical"
+               app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+               <EditText
+                   android:id="@+id/last_name"
+
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="8dp"
+                   android:layout_marginTop="20dp"
+                   android:layout_marginEnd="8dp"
+                   android:hint="Subject Code"
+                   android:inputType="textPersonName"
+                   android:singleLine="true"
+  />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="2"
+                   android:orientation="horizontal"
+                   >
+
+                   <Spinner
+                       android:id="@+id/spinner_depertment"
+                       android:layout_width="wrap_content"
+                       android:layout_height="@dimen/dimen_40dp"
+                       android:layout_weight="1"
+                       android:background="@drawable/button_background_1"
+                       android:backgroundTint="@color/blue1"
+                       android:gravity="center"
+                       android:spinnerMode="dropdown" />
+
+                   <Spinner
+                       android:id="@+id/spinner2_semester"
+                       android:layout_width="wrap_content"
+
+                       android:layout_height="@dimen/dimen_40dp"
+                       android:layout_weight="1"
+
+                       android:background="@drawable/button_background_1"
+                       android:spinnerMode="dropdown" />
+
+               </LinearLayout>
+
+
+
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                 android:background="@color/AliceBlue">
+                 <EditText
+                     android:id="@+id/first_name"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="8dp"
+                     android:layout_marginTop="8dp"
+                     android:layout_marginEnd="8dp"
+                     android:hint="First Name"
+                     android:inputType="textPersonName"
+             />
+
+                 <EditText
+                     android:gravity="center"
+                     android:id="@+id/college_roll"
+
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="8dp"
+                     android:layout_marginTop="8dp"
+                     android:layout_marginEnd="8dp"
+                     android:hint="College Roll"
+                     android:inputType="number"
+                     android:singleLine="true"
+             />
+
+
+
+                 <EditText
+                     android:id="@+id/reg_no"
+
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="8dp"
+                     android:layout_marginTop="12dp"
+                     android:layout_marginEnd="8dp"
+                     android:hint="Registration Number"
+                     android:inputType="number"
+                     android:singleLine="true"
+ />
+
+             </LinearLayout>
+
+
+               <Button
+                   android:id="@+id/create_std"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="28dp"
+                   android:text="GO"
+                   app:layout_constraintTop_toBottomOf="@+id/reg_no"
+                   tools:layout_editor_absoluteX="8dp" />
+           </LinearLayout>
+
+
+       </LinearLayout>
+
+
+   </ScrollView>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

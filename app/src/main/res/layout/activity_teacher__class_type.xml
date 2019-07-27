@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Teachears_Function.Teacher_Class_type"
+    android:focusableInTouchMode="true"
+    android:nextFocusDown="@id/editText_sub_code"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dorizontalcallendercolor"
+                    android:fadingEdge="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_10dp"
+                    android:paddingEnd="@dimen/dimen_10dp">
+                    <TextView
+                        android:textColor="@color/black_semi_transparent"
+                        android:drawableStart="@drawable/ic_chevron_left_black_24dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day Before"/>
+                     <TextView
+                         android:textColor="@color/black_semi_transparent"
+                         android:drawableTop="@drawable/ic_arrow_drop_up_black_24dp"
+                         android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"/>
+
+                     <TextView
+                         android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                         android:textColor="@color/black_semi_transparent"
+                         android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day After"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+                 <LinearLayout
+                     android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="2">
+                     <LinearLayout
+                         android:layout_marginTop="@dimen/dimen_10dp"
+
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal"
+                         android:gravity="center"
+                         android:padding="@dimen/dimen_10dp"
+                         android:background="@drawable/outline_field"
+                         >
+                         <TextView
+                             android:gravity="center"
+                             android:layout_width="wrap_content"
+                             android:layout_height="match_parent"
+                             android:text="Technology Code : "
+                             android:textColor="@color/Black"
+                             android:textStyle="bold|italic"
+                             android:textSize="@dimen/dimen_20dp"/>
+
+                         <Spinner
+                             android:id="@+id/spinner_depertment"
+                             android:layout_width="93dp"
+                             android:layout_height="match_parent"
+                             android:backgroundTint="@color/blue1"
+                             android:gravity="center"
+                             android:spinnerMode="dropdown" />
+
+                     </LinearLayout>
+                     <LinearLayout
+                         android:layout_marginTop="@dimen/dimen_10dp"
+
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal"
+                         android:gravity="center"
+                         android:padding="@dimen/dimen_10dp"
+                         android:background="@drawable/outline_field">
+                         <TextView
+                             android:gravity="center"
+                             android:layout_width="wrap_content"
+                             android:layout_height="match_parent"
+                             android:text="Semester : "
+                             android:textColor="@color/Black"
+                             android:textStyle="bold|italic"
+                             android:textSize="@dimen/dimen_20dp"/>
+                         <Spinner
+                             android:id="@+id/spinner2_semester"
+
+                             android:layout_width="93dp"
+                             android:layout_height="match_parent"
+                             android:gravity="center"
+                             android:backgroundTint="@color/blue1"
+                             android:spinnerMode="dropdown"
+                   />
+
+                     </LinearLayout>
+                     <LinearLayout
+                         android:layout_marginTop="@dimen/dimen_10dp"
+
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="vertical"
+                         android:gravity="center"
+                       >
+
+                         <android.support.design.widget.TextInputLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:hint="Subject Code"
+                             android:textColorHint="@color/colorAccent"
+                             android:focusedByDefault="false"
+                             >
+                             <EditText
+                                 android:focusedByDefault="false"
+                                 android:gravity="center"
+                                 android:id="@+id/editText_sub_code"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginTop="20dp"
+                                 android:ems="10"
+                                 android:textColor="@color/colorPrimary"
+                                 android:textStyle="bold"
+                                 android:inputType="number"
+                                 app:layout_constraintEnd_toEndOf="@+id/spinner2_semester"
+                                 app:layout_constraintStart_toStartOf="@+id/spinner2_semester"
+                                 app:layout_constraintTop_toBottomOf="@+id/spinner2_semester"
+                                 android:nextFocusDown="@id/button_submit"
+                                 android:backgroundTint="@color/colorPrimary"/>
+
+                         </android.support.design.widget.TextInputLayout>
+                     </LinearLayout>
+
+                <Button
+                    android:padding="@dimen/dimen_10dp"
+                    android:drawableEnd="@drawable/ic_assignment_black_24dp"
+                    android:id="@+id/button_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="30dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/fonts"
+                    android:text="Begin Class "
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="675dp" />
+
+                <Button
+
+                    android:id="@+id/button_create_std"
+                    android:layout_width="217dp"
+
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/blue1"
+                    android:text="Create New Student"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</android.support.constraint.ConstraintLayout>
