@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -16,18 +17,10 @@ import android.widget.Toast;
 import com.bayazid.cpik_present_system.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import devs.mulham.horizontalcalendar.HorizontalCalendar;
-import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
 
 public class Create_Student extends AppCompatActivity {
     private Date_set spinnerData=new Date_set();
@@ -35,8 +28,7 @@ public class Create_Student extends AppCompatActivity {
     private EditText first_name, subjectCode,college_roll,reg_no;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static final String TAG = "Create_Student_Class";
-    private HorizontalCalendar horizontalCalendar;
-    private Calendar endDate,startDate;
+    private DatePicker picker;
     private String Date;
 
     @Override
@@ -48,6 +40,7 @@ public class Create_Student extends AppCompatActivity {
        subjectCode =findViewById(R.id.last_name);
        college_roll=findViewById(R.id.college_roll);
        reg_no=findViewById(R.id.reg_no);
+        picker=(DatePicker)findViewById(R.id.datePicker1);
 
         final Spinner departments=findViewById(R.id.spinner_depertment);
         final Spinner semester=findViewById(R.id.spinner2_semester);
@@ -58,36 +51,7 @@ public class Create_Student extends AppCompatActivity {
         ArrayAdapter<String> semesterAdapter=new ArrayAdapter<>(this,R.layout.list_view_item_customized,spinnerData.semesters);
         semester.setAdapter(semesterAdapter);
         //............................Calender View,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-        endDate = Calendar.getInstance();
-        endDate.add(Calendar.MONTH, 1);
-        startDate = Calendar.getInstance();
-        startDate.add(Calendar.MONTH, -1);
 
-        horizontalCalendar = new HorizontalCalendar.Builder(Create_Student.this, R.id.calendarView)
-                .startDate(startDate.getTime())
-                .endDate(endDate.getTime())
-                .datesNumberOnScreen(3)
-                .dayNameFormat("EEE")
-                .dayNumberFormat("dd")
-                .monthFormat("MMM")
-                .selectorColor(ContextCompat.getColor(Create_Student.this, R.color.colorAccent))
-                .textSize(13f, 23f, 13f)
-                .showDayName(true)
-                .showMonthName(true)
-
-                .textColor(Color.LTGRAY, Color.WHITE)
-                .selectedDateBackground(Color.TRANSPARENT)
-                .build();
-
-        horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
-            @Override
-            public void onDateSelected(Date date, int position) {
-
-                Date = DateFormat.getDateInstance().format(date);
-
-            }
-
-        });
 
         //button action
         Create_STD.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +62,7 @@ public class Create_Student extends AppCompatActivity {
 //                String College_roll=college_roll.getText().toString();
 //                String First_name=first_name.getText().toString();
                 String SubJectCode= subjectCode.getText().toString();
+                Date = picker.getDayOfMonth()+"/"+ (picker.getMonth() + 1)+"/"+picker.getYear();
               //  String Registration_number=reg_no.getText().toString();
 
                 db.collection("AttBook")

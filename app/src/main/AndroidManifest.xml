@@ -53,7 +53,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Teachears_Function.ViewStdInfo_RecycleView"
-            android:label="@string/app_name"
+            android:label="@string/attendance"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".Teachears_Function.Post_Students_Attendance"

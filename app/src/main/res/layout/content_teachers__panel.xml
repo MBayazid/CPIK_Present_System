@@ -14,7 +14,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <Button
-
+        android:textAllCaps="false"
         android:padding="10dp"
         android:id="@+id/take_attendance_button"
         android:layout_width="match_parent"
@@ -30,14 +30,15 @@
 
     <Button
         android:layout_marginTop="10dp"
-        android:id="@+id/view_full_semester_button3"
+        android:id="@+id/view_scheduled_attendance_book_button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
 
         android:background="@drawable/theme_button"
         android:textColor="@color/White"
-        android:text="View full Semester"
+        android:text="View Scheduled Attendance Date"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/take_attendance_button"
         app:layout_constraintHorizontal_bias="0.461"
         />
@@ -47,24 +48,27 @@
 
         android:background="@drawable/theme_button"
         android:textColor="@color/White"
-        android:id="@+id/attendance_book_button4"
+        android:id="@+id/edit_already_taken_btn"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-
-        android:text="View Attendance Book"
+        android:textAllCaps="false"
+        android:text="Edit Already Taken Attendance"
         />
     <Button
         android:layout_marginTop="10dp"
 
+        android:id="@+id/view_attendance_book_button3"
         android:background="@drawable/theme_button"
         android:textColor="@color/White"
-        android:id="@+id/add_stdunts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:text="View Attendance Book"
 
-        android:text="Add New Student"
+        android:textAllCaps="false"
+
         />
 
 

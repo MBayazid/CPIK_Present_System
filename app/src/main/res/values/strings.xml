@@ -29,4 +29,5 @@
     <string name="menu_send">Send</string>
 
     <string name="Root_URL">http://192.168.0.106/CPIK_APIs/</string>
+    <string name="attendance">Attendance</string>
 </resources>

@@ -74,7 +74,6 @@ private MyAdapter adapter;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Std_Data_set stdDataSet=new Std_Data_set(document.getId());
 
-
                                 std_data_sets.add(stdDataSet);
                                 adapter.notifyDataSetChanged();
                             }

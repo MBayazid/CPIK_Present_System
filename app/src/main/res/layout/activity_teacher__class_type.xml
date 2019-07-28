@@ -7,6 +7,7 @@
     tools:context=".Teachears_Function.Teacher_Class_type"
     android:focusableInTouchMode="true"
     android:nextFocusDown="@id/editText_sub_code"
+    android:background="@color/AliceBlue"
     >
     <ScrollView
         android:layout_width="match_parent"
@@ -21,49 +22,38 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center">
 
-                <devs.mulham.horizontalcalendar.HorizontalCalendarView
-                    android:id="@+id/calendarView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/dorizontalcallendercolor"
-                    android:fadingEdge="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     android:weightSum="3"
                     android:gravity="center"
-                    android:paddingStart="@dimen/dimen_10dp"
-                    android:paddingEnd="@dimen/dimen_10dp">
+                    android:visibility="gone"
+                   >
                     <TextView
                         android:textColor="@color/black_semi_transparent"
-                        android:drawableStart="@drawable/ic_chevron_left_black_24dp"
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Day Before"/>
-                     <TextView
-                         android:textColor="@color/black_semi_transparent"
-                         android:drawableTop="@drawable/ic_arrow_drop_up_black_24dp"
-                         android:layout_weight="1"
+                    <TextView
+                        android:textColor="@color/black_semi_transparent"
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Today"/>
 
-                     <TextView
-                         android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-                         android:textColor="@color/black_semi_transparent"
-                         android:layout_weight="1"
+                    <TextView
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:textColor="@color/black_semi_transparent"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -71,6 +61,17 @@
 
 
                 </LinearLayout>
+                <DatePicker
+                    android:id="@+id/datePicker1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:datePickerMode="spinner"
+                    android:calendarViewShown="false"
+                    android:backgroundTint="@color/Brown"
+
+                    />
+
+
 
             </LinearLayout>
 
@@ -90,7 +91,7 @@
                          android:orientation="horizontal"
                          android:gravity="center"
                          android:padding="@dimen/dimen_10dp"
-                         android:background="@drawable/outline_field"
+
                          >
                          <TextView
                              android:gravity="center"
@@ -98,14 +99,14 @@
                              android:layout_height="match_parent"
                              android:text="Technology Code : "
                              android:textColor="@color/Black"
-                             android:textStyle="bold|italic"
+                             android:textStyle="italic"
                              android:textSize="@dimen/dimen_20dp"/>
 
                          <Spinner
                              android:id="@+id/spinner_depertment"
                              android:layout_width="93dp"
                              android:layout_height="match_parent"
-                             android:backgroundTint="@color/blue1"
+                             android:backgroundTint="@color/colorAccent"
                              android:gravity="center"
                              android:spinnerMode="dropdown" />
 
@@ -118,14 +119,14 @@
                          android:orientation="horizontal"
                          android:gravity="center"
                          android:padding="@dimen/dimen_10dp"
-                         android:background="@drawable/outline_field">
+                       >
                          <TextView
                              android:gravity="center"
                              android:layout_width="wrap_content"
                              android:layout_height="match_parent"
                              android:text="Semester : "
                              android:textColor="@color/Black"
-                             android:textStyle="bold|italic"
+                             android:textStyle="italic"
                              android:textSize="@dimen/dimen_20dp"/>
                          <Spinner
                              android:id="@+id/spinner2_semester"
@@ -133,7 +134,7 @@
                              android:layout_width="93dp"
                              android:layout_height="match_parent"
                              android:gravity="center"
-                             android:backgroundTint="@color/blue1"
+                             android:backgroundTint="@color/colorAccent"
                              android:spinnerMode="dropdown"
                    />
 
@@ -174,34 +175,23 @@
                          </android.support.design.widget.TextInputLayout>
                      </LinearLayout>
 
-                <Button
-                    android:padding="@dimen/dimen_10dp"
-                    android:drawableEnd="@drawable/ic_assignment_black_24dp"
-                    android:id="@+id/button_submit"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="30dp"
+                     <Button
+                         android:id="@+id/button_submit"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginStart="8dp"
+                         android:layout_marginTop="30dp"
+                         android:background="@drawable/theme_button"
+                         android:textColor="@color/white1"
+                         android:layout_marginEnd="8dp"
+                         android:drawableEnd="@drawable/ic_assignment_black_24dp"
+                         android:fontFamily="@font/fonts"
+                         android:padding="@dimen/dimen_10dp"
+                         android:text="Begin Class "
+                         app:layout_constraintEnd_toEndOf="parent"
+                         app:layout_constraintStart_toStartOf="parent"
+                         tools:layout_editor_absoluteY="675dp" />
 
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/fonts"
-                    android:text="Begin Class "
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="675dp" />
-
-                <Button
-
-                    android:id="@+id/button_create_std"
-                    android:layout_width="217dp"
-
-                    android:layout_height="45dp"
-                    android:layout_marginBottom="16dp"
-                    android:backgroundTint="@color/blue1"
-                    android:text="Create New Student"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
 
         </LinearLayout>

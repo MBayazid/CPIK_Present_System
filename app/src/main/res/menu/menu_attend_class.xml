@@ -2,14 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_by_roll"
         android:orderInCategory="100"
-        android:title="By Roll"
-        app:showAsAction="never"
-        />
-    <item
-        app:showAsAction="never"
+        app:showAsAction="never|ifRoom"
         android:id="@+id/action_by_rescan"
         android:title="Rescan Students List"
+        android:icon="@drawable/ic_refresh_black_24dp"
         />
+    <item
+        android:id="@+id/action_by_roll"
+
+        android:title="Search Roll"
+        app:showAsAction="collapseActionView|always"
+        android:icon="@drawable/ic_search"
+
+
+        />
+
 </menu>

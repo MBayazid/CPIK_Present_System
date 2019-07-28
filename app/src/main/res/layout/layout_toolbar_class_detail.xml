@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/activity_student__recycle_">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:paddingStart="@dimen/dimen_40dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="54dp"
+                android:src="@drawable/logo_cpik" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="3dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Technology : "
+                    android:textColor="@color/white1"
+                    android:textStyle="normal"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/apercu_regular"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="###"
+                    android:id="@+id/tollbar_techonology"
+                    android:lines="1"
+
+                    android:textColor="@color/white1"
+                    android:textStyle="bold|italic"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity=""
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2FC23910">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Semester : "
+                    android:textColor="@color/white1"
+                    android:textSize="16dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/apercu_regular"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="# "
+                    android:textColor="@color/white1"
+                    android:textSize="16sp"
+                    android:textStyle="italic|bold"
+                    android:id="@+id/tollbar_semester" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Subject : "
+                    android:textColor="@color/white1"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/apercu_regular"
+                    />
+                <TextView
+                    android:id="@+id/tollbar_subcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="#### "
+                    android:textColor="@color/white1"
+                    android:textSize="16sp"
+                    android:textStyle="italic|bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2FFF5722">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white1"
+
+                    android:text="Date : "
+                    android:textSize="16sp"
+                    android:fontFamily="@font/agency"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="##/##/##"
+                    android:textStyle="italic|bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/white1"
+                    android:id="@+id/tollbar_date" />
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

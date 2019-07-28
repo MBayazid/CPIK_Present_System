@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
+import com.bayazid.cpik_present_system.Students_List;
 import com.bayazid.librarycpik.TerminalAnimation.SplashScreen;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -115,6 +116,7 @@ private Session session;
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            startActivity(new Intent(GeneralUser_Profile.this, Students_List.class));
 
         } else if (id == R.id.nav_slideshow) {
 

@@ -40,7 +40,7 @@ public class Teachers_Panel extends AppCompatActivity {
     CircularImageView ProfilePic;
     GoogleSignInClient mGoogleSignInClient;
 
-    private Button SignOut,View_Full_semester,Take_Attendance,View_Attendance_Book,Add_newStd;
+    private Button SignOut, View_Schduled_Attendance,Take_Attendance,View_Attendance_Book, EditAttendance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +54,10 @@ public class Teachers_Panel extends AppCompatActivity {
         Email = findViewById(R.id.email);
         ProfilePic = findViewById(R.id.profilepic);
         // SignOut = findViewById(R.id.signout);
-        View_Full_semester = findViewById(R.id.view_full_semester_button3);
+        View_Schduled_Attendance = findViewById(R.id.view_scheduled_attendance_book_button4);
         Take_Attendance = findViewById(R.id.take_attendance_button);
-        View_Attendance_Book = findViewById(R.id.attendance_book_button4);
-        Add_newStd = findViewById(R.id.add_stdunts);
+        View_Attendance_Book = findViewById(R.id.view_attendance_book_button3);
+        EditAttendance = findViewById(R.id.edit_already_taken_btn);
 
         //firebase Auth innit
         mAuth = FirebaseAuth.getInstance();
@@ -86,7 +86,7 @@ public class Teachers_Panel extends AppCompatActivity {
         updateAdminProfile();
 
         //Add Std Action
-        Add_newStd.setOnClickListener(new View.OnClickListener() {
+        EditAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Teachers_Panel.this, Create_Student.class));
@@ -96,16 +96,16 @@ public class Teachers_Panel extends AppCompatActivity {
         View_Attendance_Book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Attendance_Book_Main.class));
+
             }
         });
 
 
         //view Full Semester Action
-        View_Full_semester.setOnClickListener(new View.OnClickListener() {
+        View_Schduled_Attendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Create_Student.class));
+                startActivity(new Intent(getApplicationContext(), Attendance_Book_Main.class));
 
 
             }
@@ -126,7 +126,6 @@ public class Teachers_Panel extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
 
     }
 

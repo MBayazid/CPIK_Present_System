@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.R;
@@ -51,6 +52,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     private    String Email_Name,Person_Name;
     public SwitchButton switchButton;
     private boolean intentData,haveTname;
+    private TextView Header_Technology,Header_Semester,Header_Subject,Header_Date;
 
 
 
@@ -60,14 +62,20 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         setContentView(R.layout.activity_student__recycle_);
 
         Toolbar toolbar=findViewById(R.id.toolbar_std_recycle_view);
+        setSupportActionBar(toolbar);
+
+        Header_Technology=findViewById(R.id.tollbar_techonology);
+        Header_Semester=findViewById(R.id.tollbar_semester);
+        Header_Subject=findViewById(R.id.tollbar_subcode);
+        Header_Date=findViewById(R.id.tollbar_date);
+
+
         //Curent User
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
          Email_Name=mUser.getEmail();
          Person_Name=mUser.getDisplayName();
 
-        android.support.v7.widget.Toolbar toolbar_sts_recycle = (Toolbar) findViewById(R.id.toolbar_std_recycle_view);
-        setSupportActionBar(toolbar_sts_recycle);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mAdapter = new STD_Recycler_Adapter(std_data_sets);
         recyclerView.setHasFixedSize(true);
@@ -124,7 +132,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     //get Technology Name
                     getTechnologyName();
                     //Creat Teachers Attendance Room
-                    createTeachersRoom();
+                   // createTeachersRoom();
                     }else if (intentData==false){
                     startActivity(new Intent(getApplicationContext(),Teacher_Class_type.class));
                         ViewStdInfo_RecycleView.this.finish();}
@@ -189,7 +197,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         }
         //delete students Attendance function
         private void stdAttendanceDelete(final String deleteRoll) {
-            db.collection("AttBook")
+            db.collection(Email_Name)
                     .document(Date)
                     .collection(SubjectCode)
                     .document(deleteRoll)
@@ -218,12 +226,14 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         students_Attendance.put("SubjectCode", SubjectCode);
         students_Attendance.put("Semester", Semester);
         students_Attendance.put("WasPresent",true);
+        students_Attendance.put("Technology",Department);
+        students_Attendance.put("Date",Date);
 
 
         // Add a new document with a generated ID
-        db.collection("AttBook")
-                .document(SubjectCode)
-                .collection(Date)
+        db.collection(Email_Name)
+                .document(Date)
+                .collection(SubjectCode)
                 .document(College_roll)
                 .set(students_Attendance)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -251,10 +261,18 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         if (document.getId().equals(Department)){
+
+
                             TechnologyName= document.getString("TechnologyName");
+
+                             Header_Technology.setText(TechnologyName);
+                             Header_Semester.setText(Semester);
+                             Header_Subject.setText(SubjectCode);
+                             Header_Date.setText(Date);
+
                             //change title full_name
-                            setTitle(TechnologyName+" > " + Semester +" > "+SubjectCode +" > "+Date);
-                            setTitleColor(R.color.White);
+                            //setTitle(TechnologyName+" > " + Semester +" > "+SubjectCode +" > "+Date);
+                          //  setTitleColor(R.color.White);
                               //Toast.makeText(getApplicationContext(),"Department = "+TechnologyName+"\n Semester ="+Semester ,Toast.LENGTH_SHORT).show();
                               //get All STD Documents Data by Fields
                               getExpectedStudents();
