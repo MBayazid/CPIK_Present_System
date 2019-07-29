@@ -61,13 +61,14 @@ public class STD_Recycler_Adapter extends RecyclerView.Adapter<STD_Recycler_Adap
         holder.STD_Board_Roll.setText(stdDataSet.getLast_Name());
         holder.STD_Reg_Num.setText(stdDataSet.getReg_Number());
 
-        holder.switchButton.setOnCheckedChangeListener(null);
+       // holder.switchButton.setOnCheckedChangeListener(null);
         holder.switchButton.setChecked(stdDataSet.isSelect());
         holder.switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
-                std_data_sets.get(position).setSelect(isChecked);
-                stdDataSet.setSelect(isChecked);
+//                std_data_sets.get(position).setSelect(isChecked);
+//                stdDataSet.setSelect(isChecked);
+
 
             }
         });

@@ -14,6 +14,7 @@ public class Std_Data_set {
     this.select=select;
 
     }
+
     public boolean isSelect() {
         return select;
     }
@@ -22,8 +23,11 @@ public class Std_Data_set {
         this.select = select;
     }
     //DB Path ID
-    public Std_Data_set(String DbPathId){    this.DbPathId=DbPathId;
-
+    public Std_Data_set(String DbPathId){
+        this.DbPathId=DbPathId;
+    }
+    public Std_Data_set(int posi){
+        this.posi=posi;
     }
 
     //F Name

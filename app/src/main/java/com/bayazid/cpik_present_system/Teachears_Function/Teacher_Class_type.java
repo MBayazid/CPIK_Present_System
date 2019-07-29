@@ -48,6 +48,7 @@ public class Teacher_Class_type extends AppCompatActivity {
         picker=(DatePicker)findViewById(R.id.datePicker1);
 
         session=new Session(this);
+        session.setTotalStudents(0);
         //Show Dialog Box
       //  showCustomDialog();
         final Spinner departments=findViewById(R.id.spinner_depertment);
@@ -101,8 +102,9 @@ public class Teacher_Class_type extends AppCompatActivity {
                     String Department=departments.getSelectedItem().toString();
                     String Semester=semester.getSelectedItem().toString();
                     String Sub_Code= SubjectCode.getText().toString();
+                    if (Sub_Code.isEmpty()==false &&  Sub_Code.length()>=4){
 
-                    db.collection(session.getEamil())
+                                            db.collection(session.getEamil())
                         .document(Date)
                         .collection(Sub_Code)
                         .get()
@@ -119,6 +121,11 @@ public class Teacher_Class_type extends AppCompatActivity {
                                 }
                             }
                         });
+                    }
+                    else {SubjectCode.setError("Reinsert Subject Code....");}
+
+
+
                 }
             });
     }

@@ -73,4 +73,12 @@ public class Session {private SharedPreferences preferences;
         boolean isAdminEmail = preferences.getBoolean( "isAdminEmail", false );
         return isAdminEmail;
     }
+ //get Admin Email
+    public void setTotalStudents(int TotalStudents){
+        preferences.edit().putInt( "TotalStudents", TotalStudents ).commit();
+    }
+    public int getTotalStudents(){
+        int TotalStudents = preferences.getInt( "TotalStudents", 0 );
+        return TotalStudents;
+    }
 }

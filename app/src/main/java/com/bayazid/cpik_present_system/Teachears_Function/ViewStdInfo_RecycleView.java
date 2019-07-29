@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
 import com.bayazid.cpik_present_system.Scan_Cpik_Server.Get_Student_Group_JSON;
 import com.bayazid.cpik_present_system.Std_UI.STD_Recycler_Adapter;
@@ -54,6 +55,9 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     public SwitchButton switchButton;
     private boolean intentData,haveTname;
     private TextView Header_Technology,Header_Semester,Header_Subject,Header_Date;
+    private Session session;
+    private int TotalStudents;
+    TextView ViewTotalStudents;
 
 
 
@@ -69,6 +73,9 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         Header_Semester=findViewById(R.id.tollbar_semester);
         Header_Subject=findViewById(R.id.tollbar_subcode);
         Header_Date=findViewById(R.id.tollbar_date);
+        ViewTotalStudents=findViewById(R.id.total_students);
+
+        session= new Session(this);
 
 
         //Curent User
@@ -97,16 +104,21 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
                    @Override
                    public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+
                        Std_Data_set stdDataSet = std_data_sets.get(position);
 
                        if (isChecked==true){
                            std_data_sets.get(position).setSelect(isChecked);
-                           // Toast.makeText(ViewStdInfo_RecycleView.this,position,Toast.LENGTH_SHORT).show();
+
+//                            Toast.makeText(ViewStdInfo_RecycleView.this,session.getTotalStudents()+" Total",Toast.LENGTH_SHORT).show();
                            addStdAttendance(stdDataSet.getCollege_Roll(),stdDataSet.getFirst_Name());
+
+
 
 
                        }else {
                            //delete students Attendance function
+                           std_data_sets.get(position).setSelect(isChecked);
                            stdAttendanceDelete(stdDataSet.getCollege_Roll());
 
                        }
@@ -198,6 +210,8 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         }
         //delete students Attendance function
         private void stdAttendanceDelete(final String deleteRoll) {
+
+
             db.collection(Email_Name)
                     .document(Date)
                     .collection(SubjectCode)
@@ -208,6 +222,10 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                            // Log.d(TAG, "DocumentSnapshot successfully deleted!");
                             Toast.makeText(ViewStdInfo_RecycleView.this,deleteRoll+ " -- successfully Removed",Toast.LENGTH_SHORT).show();
+                            //view total
+                            session.setTotalStudents(session.getTotalStudents()-1);
+                            ViewTotalStudents.setText(" "+session.getTotalStudents());
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -221,9 +239,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         }
         //add attendance Single Student
     private void addStdAttendance( final String College_roll,String Name) {
-
         Map<String, Object> students_Attendance = new HashMap<>();
-
         students_Attendance.put("Date",Date);
         students_Attendance.put("Name", Name);
         students_Attendance.put("CollegeRoll", College_roll);
@@ -231,9 +247,6 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         students_Attendance.put("Semester", Semester);
         students_Attendance.put("Technology",Department);
         students_Attendance.put("WasPresent",true);
-
-
-
         // Add a new document with a generated ID
         db.collection(Email_Name)
                 .document(Date)
@@ -243,13 +256,16 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(ViewStdInfo_RecycleView.this, College_roll + " Added", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(ViewStdInfo_RecycleView.this, College_roll + " Added", Toast.LENGTH_SHORT).show();
+                        //view total attendance
+                        session.setTotalStudents(1+session.getTotalStudents());
+                        ViewTotalStudents.setText(" "+session.getTotalStudents());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ViewStdInfo_RecycleView.this, "Not Successful!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ViewStdInfo_RecycleView.this, "Try Again PLZ", Toast.LENGTH_SHORT).show();
                         //  Log.d(TAG, e.toString());
                     }
                 });
@@ -273,12 +289,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                              Header_Semester.setText(Semester);
                              Header_Subject.setText(SubjectCode);
                              Header_Date.setText(Date);
-
-                            //change title full_name
-                            //setTitle(TechnologyName+" > " + Semester +" > "+SubjectCode +" > "+Date);
-                          //  setTitleColor(R.color.White);
-                              //Toast.makeText(getApplicationContext(),"Department = "+TechnologyName+"\n Semester ="+Semester ,Toast.LENGTH_SHORT).show();
-                              //get All STD Documents Data by Fields
+                             //get All STD Documents Data by Fields
                               getExpectedStudents();
                         }
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
