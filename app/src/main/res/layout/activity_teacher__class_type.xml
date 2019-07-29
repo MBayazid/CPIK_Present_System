@@ -174,23 +174,49 @@
 
                          </android.support.design.widget.TextInputLayout>
                      </LinearLayout>
-
-                     <Button
-                         android:id="@+id/button_submit"
-                         android:layout_width="wrap_content"
+                     <LinearLayout
+                         android:layout_width="match_parent"
                          android:layout_height="wrap_content"
-                         android:layout_marginStart="8dp"
-                         android:layout_marginTop="30dp"
-                         android:background="@drawable/theme_button"
-                         android:textColor="@color/white1"
-                         android:layout_marginEnd="8dp"
-                         android:drawableEnd="@drawable/ic_assignment_black_24dp"
-                         android:fontFamily="@font/fonts"
-                         android:padding="@dimen/dimen_10dp"
-                         android:text="Begin Class "
-                         app:layout_constraintEnd_toEndOf="parent"
-                         app:layout_constraintStart_toStartOf="parent"
-                         tools:layout_editor_absoluteY="675dp" />
+                         android:orientation="vertical"
+                         android:gravity="center">
+
+                         <Button
+                             android:id="@+id/button_submit"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="8dp"
+                             android:layout_marginTop="30dp"
+                             android:background="@drawable/theme_button"
+                             android:textColor="@color/white1"
+                             android:layout_marginEnd="8dp"
+                             android:drawableEnd="@drawable/ic_assignment_black_24dp"
+                             android:fontFamily="@font/fonts"
+                             android:padding="@dimen/dimen_10dp"
+                             android:text="Begin Class "
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             tools:layout_editor_absoluteY="675dp" />
+                          <Button
+                             android:id="@+id/button_get_report"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="8dp"
+                             android:layout_marginTop="30dp"
+                             android:background="@drawable/theme_button"
+                             android:textColor="@color/white1"
+                             android:layout_marginEnd="8dp"
+                             android:drawableEnd="@drawable/ic_assignment_black_24dp"
+                             android:fontFamily="@font/fonts"
+                             android:padding="@dimen/dimen_10dp"
+                             android:text="Get Class Report "
+                             app:layout_constraintEnd_toEndOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             tools:layout_editor_absoluteY="675dp" />
+
+
+                     </LinearLayout>
+
+
 
             </LinearLayout>
 

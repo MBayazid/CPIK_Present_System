@@ -34,6 +34,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.zxing.oned.Code93Reader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -101,7 +102,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                        if (isChecked==true){
                            std_data_sets.get(position).setSelect(isChecked);
                            // Toast.makeText(ViewStdInfo_RecycleView.this,position,Toast.LENGTH_SHORT).show();
-                           addStdAttendance(stdDataSet.getCollege_Roll());
+                           addStdAttendance(stdDataSet.getCollege_Roll(),stdDataSet.getFirst_Name());
 
 
                        }else {
@@ -219,15 +220,18 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     });
         }
         //add attendance Single Student
-    private void addStdAttendance( final String College_roll) {
+    private void addStdAttendance( final String College_roll,String Name) {
 
         Map<String, Object> students_Attendance = new HashMap<>();
 
+        students_Attendance.put("Date",Date);
+        students_Attendance.put("Name", Name);
+        students_Attendance.put("CollegeRoll", College_roll);
         students_Attendance.put("SubjectCode", SubjectCode);
         students_Attendance.put("Semester", Semester);
-        students_Attendance.put("WasPresent",true);
         students_Attendance.put("Technology",Department);
-        students_Attendance.put("Date",Date);
+        students_Attendance.put("WasPresent",true);
+
 
 
         // Add a new document with a generated ID

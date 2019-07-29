@@ -70,6 +70,20 @@
         android:textAllCaps="false"
 
         />
+<Button
+        android:layout_marginTop="10dp"
+
+        android:id="@+id/single_std_query__button4"
+        android:background="@drawable/theme_button"
+        android:textColor="@color/White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Get Single Student Query Report"
+
+        android:textAllCaps="false"
+
+        />
 
 
 

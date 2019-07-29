@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
+import com.bayazid.cpik_present_system.Students_List;
 import com.bayazid.cpik_present_system.Teachears_Function.Attendance_Book_Main;
 import com.bayazid.cpik_present_system.R;
 
@@ -40,7 +41,7 @@ public class Teachers_Panel extends AppCompatActivity {
     CircularImageView ProfilePic;
     GoogleSignInClient mGoogleSignInClient;
 
-    private Button SignOut, View_Schduled_Attendance,Take_Attendance,View_Attendance_Book, EditAttendance;
+    private Button SignOut, View_Schduled_Attendance,Take_Attendance,View_Attendance_Book, EditAttendance,Single_STD_Qurey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,11 +59,13 @@ public class Teachers_Panel extends AppCompatActivity {
         Take_Attendance = findViewById(R.id.take_attendance_button);
         View_Attendance_Book = findViewById(R.id.view_attendance_book_button3);
         EditAttendance = findViewById(R.id.edit_already_taken_btn);
+        Single_STD_Qurey = findViewById(R.id.single_std_query__button4);
 
         //firebase Auth innit
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         session.setTitle("SignIn");
+        session.setEamil(mUser.getEmail());
         session.setName(mUser.getDisplayName());
         session.setImageURL(mUser.getPhotoUrl().toString());
         session.setuId(mUser.getUid().toString());
@@ -116,6 +119,13 @@ public class Teachers_Panel extends AppCompatActivity {
             public void onClick(View view) {
 //                startActivity(new Intent(getApplicationContext(), Post_Students_Attendance.class));
                 startActivity(new Intent(getApplicationContext(), Teacher_Class_type.class));
+            }
+        });
+
+        Single_STD_Qurey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Students_List.class));
             }
         });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

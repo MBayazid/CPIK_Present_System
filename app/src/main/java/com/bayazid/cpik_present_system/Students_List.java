@@ -1,80 +1,111 @@
 package com.bayazid.cpik_present_system;
 
 import android.app.DatePickerDialog;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bayazid.cpik_present_system.Teachears_Function.Date_set;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class Students_List extends AppCompatActivity {
-
-    final Calendar myCalendar = Calendar.getInstance();
-    EditText  edittext;
-
-    DatePicker picker;
-    Button btnGet;
-    TextView tvw;
+    private EditText CollegeRoll,subjectCode;
+    private Button GetQ,Confirm_btn;
+    private DatePicker picker;
+    private DocumentReference  db,DB;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private    String Email_Name,Person_Name,SubjectCode;
+    private Date_set spinnerData=new Date_set();
+    String Date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_students__list);
-        edittext= (EditText) findViewById(R.id.Birthday);
-
-        tvw=(TextView)findViewById(R.id.textView1);
-        picker=(DatePicker)findViewById(R.id.datePicker1);
-        btnGet=(Button)findViewById(R.id.button1);
-        btnGet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvw.setText("Selected Date: "+ picker.getDayOfMonth()+"/"+ (picker.getMonth() + 1)+"/"+picker.getYear());
-            }
-        });
 
 
-//        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+//        //Curent User
+//        mAuth = FirebaseAuth.getInstance();
+//        mUser = mAuth.getCurrentUser();
+//        Email_Name=mUser.getEmail();
+//        Person_Name=mUser.getDisplayName();
 //
+//        setContentView(R.layout.activity_students__list);
+//        Confirm_btn=findViewById(R.id.button_submit);
+//        subjectCode=findViewById(R.id.editText_sub_code);
+//        picker=(DatePicker)findViewById(R.id.datePicker1);
+//
+//        final Spinner departments=findViewById(R.id.spinner_depertment);
+//        final Spinner semester=findViewById(R.id.spinner2_semester);
+//        //set Adepters to spinners
+//        ArrayAdapter<String> departmentsAdapter=new ArrayAdapter<>(this,R.layout.list_view_item_customized,spinnerData.Departments);
+//        departments.setAdapter(departmentsAdapter);
+//
+//        ArrayAdapter<String> semesterAdapter=new ArrayAdapter<>(this,R.layout.list_view_item_customized,spinnerData.semesters);
+//        semester.setAdapter(semesterAdapter);
+//
+//        Confirm_btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onDateSet(DatePicker view, int year, int monthOfYear,
-//                                  int dayOfMonth) {
-//                // TODO Auto-generated method stub
-//                myCalendar.set(Calendar.YEAR, year);
-//                myCalendar.set(Calendar.MONTH, monthOfYear);
-//                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-//                updateLabel();
+//            public void onClick(View view) {
+//                Date = picker.getDayOfMonth()+" "+ (picker.getMonth() + 1)+" "+picker.getYear();
+//                String Department=departments.getSelectedItem().toString();
+//                String Semester=semester.getSelectedItem().toString();
+//                String Sub_Code= SubjectCode.getText().toString();
+//                db.collection(Email_Name)
+//                        .document(Date)
+//                        .collection(SubjectCode)
+//                        .get()
+//                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                if (task.isSuccessful()) {
+//                                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                                        Log.d("", document.getId() + " => " + document.getData());
+//                                        Toast.makeText(getApplicationContext(),document.getId(),Toast.LENGTH_SHORT).show();
+//                                    }
+//                                } else {
+//                                    Log.d("", "Error getting documents: ", task.getException());
+//                                }
+//                            }
+//                        });
+//
 //            }
+//        });
 //
-//        };
 
-//        edittext.setOnClickListener(new View.OnClickListener() {
-//
+
+       // CollegeRoll=findViewById(R.id.college_roll);
+       // GetQ=findViewById(R.id.get_std_data);
+
+//        GetQ.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                new DatePickerDialog(Students_List.this, date, myCalendar
-//                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-//                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//            public void onClick(View view) {
+//                String StudentRoll=CollegeRoll.getText().toString();
+//
+//                Date = picker.getDayOfMonth()+" "+ (picker.getMonth() + 1)+" "+picker.getYear();
 //            }
 //        });
 
 
 
-
-
     }
-
-//    private void updateLabel() {
-//        String myFormat = "MM/dd/yy"; //In which you need put here
-//        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-//
-//        edittext.setText(sdf.format(myCalendar.getTime()));
-//
-//
-//    }
 }

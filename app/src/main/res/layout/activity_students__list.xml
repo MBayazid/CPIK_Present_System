@@ -2,54 +2,202 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     android:orientation="vertical"
     tools:context=".Students_List"
-    android:gravity="center"
-    >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:gravity="center">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Birthday"
-        android:clickable="true"
-        android:editable="false"
-        android:hint="birthday"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="3"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:textColor="@color/black_semi_transparent"
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day Before"/>
+                    <TextView
+                        android:textColor="@color/black_semi_transparent"
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"/>
+
+                    <TextView
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:textColor="@color/black_semi_transparent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day After"/>
 
 
-    <DatePicker
-        android:id="@+id/datePicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:datePickerMode="spinner"
-        android:calendarViewShown="false"
-        />
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/datePicker1"
-        android:layout_marginLeft="100dp"
-        android:text="Get Date" />
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textSize="18dp"/>
+                </LinearLayout>
+                <DatePicker
+                    android:id="@+id/datePicker1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:datePickerMode="spinner"
+                    android:calendarViewShown="false"
+                    android:backgroundTint="@color/Brown"
+
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="2">
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dimen_10dp"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+
+                    >
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Technology Code : "
+                        android:textColor="@color/Black"
+                        android:textStyle="italic"
+                        android:textSize="@dimen/dimen_20dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_depertment"
+                        android:layout_width="93dp"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center"
+                        android:spinnerMode="dropdown" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dimen_10dp"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+                    >
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Semester : "
+                        android:textColor="@color/Black"
+                        android:textStyle="italic"
+                        android:textSize="@dimen/dimen_20dp"/>
+                    <Spinner
+                        android:id="@+id/spinner2_semester"
+
+                        android:layout_width="93dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:backgroundTint="@color/colorAccent"
+                        android:spinnerMode="dropdown"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dimen_10dp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Subject Code"
+                        android:textColorHint="@color/colorAccent"
+                        android:focusedByDefault="false"
+                        >
+                        <EditText
+                            android:focusedByDefault="false"
+                            android:gravity="center"
+                            android:id="@+id/editText_sub_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:ems="10"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold"
+                            android:inputType="number"
+                            app:layout_constraintEnd_toEndOf="@+id/spinner2_semester"
+                            app:layout_constraintStart_toStartOf="@+id/spinner2_semester"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner2_semester"
+                            android:nextFocusDown="@id/button_submit"
+                            android:backgroundTint="@color/colorPrimary"/>
+
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/theme_button"
+                    android:textColor="@color/white1"
+                    android:layout_marginEnd="8dp"
+                    android:drawableEnd="@drawable/ic_assignment_black_24dp"
+                    android:fontFamily="@font/fonts"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="Begin Class "
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="675dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 
 </LinearLayout>
-
-
-    </LinearLayout>

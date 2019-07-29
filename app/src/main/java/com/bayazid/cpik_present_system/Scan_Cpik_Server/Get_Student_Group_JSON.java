@@ -60,11 +60,6 @@ public class Get_Student_Group_JSON extends AppCompatActivity {
         if (intentData==true){
             startScanningDB();
         }
-
-
-
-
-
     }
 
     private void startScanningDB() {
@@ -107,14 +102,19 @@ public class Get_Student_Group_JSON extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 if (error instanceof TimeoutError || error instanceof NoConnectionError) {
                     Toast.makeText(getApplication(),"Your Network Connection Problem", Toast.LENGTH_LONG).show();
+                    finish();
                 } else if (error instanceof AuthFailureError) {
                     Toast.makeText(getApplication(),"Failure to Connection Server", Toast.LENGTH_LONG).show();
+                    finish();
                 } else if (error instanceof ServerError) {
                     Toast.makeText(getApplication(),"Server Problem", Toast.LENGTH_LONG).show();
+                    finish();
                 } else if (error instanceof NetworkError) {
                     Toast.makeText(getApplication(),"Network Problem", Toast.LENGTH_LONG).show();
+                    finish();
                 } else if (error instanceof ParseError) {
                     Toast.makeText(getApplication(),"Parse Problem", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
 
