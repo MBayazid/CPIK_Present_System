@@ -32,15 +32,27 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 android:layout_gravity="bottom">
-                <TextView
-                    android:gravity="center"
-                    android:id="@+id/total_students"
-                    android:drawableStart="@drawable/student_icon"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Total"
-                    android:textColor="@color/white1"
-                    android:textStyle="bold"/>
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_person_black_24dp"
+                        android:tint="@color/white1"/>
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/total_students"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white1"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
             </android.support.v7.widget.Toolbar>
 
             <include android:layout_width="match_parent"

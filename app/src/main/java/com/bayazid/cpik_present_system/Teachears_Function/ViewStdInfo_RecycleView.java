@@ -109,13 +109,8 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
 
                        if (isChecked==true){
                            std_data_sets.get(position).setSelect(isChecked);
-
 //                            Toast.makeText(ViewStdInfo_RecycleView.this,session.getTotalStudents()+" Total",Toast.LENGTH_SHORT).show();
                            addStdAttendance(stdDataSet.getCollege_Roll(),stdDataSet.getFirst_Name());
-
-
-
-
                        }else {
                            //delete students Attendance function
                            std_data_sets.get(position).setSelect(isChecked);
@@ -239,6 +234,10 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         }
         //add attendance Single Student
     private void addStdAttendance( final String College_roll,String Name) {
+        //view total attendance
+        session.setTotalStudents(1+session.getTotalStudents());
+        ViewTotalStudents.setText(" "+session.getTotalStudents());
+
         Map<String, Object> students_Attendance = new HashMap<>();
         students_Attendance.put("Date",Date);
         students_Attendance.put("Name", Name);
@@ -247,6 +246,11 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         students_Attendance.put("Semester", Semester);
         students_Attendance.put("Technology",Department);
         students_Attendance.put("WasPresent",true);
+
+        final Map<String, Object> TotalStudentCount = new HashMap<>();
+        TotalStudentCount.put("Total",session.getTotalStudents());
+
+
         // Add a new document with a generated ID
         db.collection(Email_Name)
                 .document(Date)
@@ -257,14 +261,19 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                        // Toast.makeText(ViewStdInfo_RecycleView.this, College_roll + " Added", Toast.LENGTH_SHORT).show();
-                        //view total attendance
-                        session.setTotalStudents(1+session.getTotalStudents());
-                        ViewTotalStudents.setText(" "+session.getTotalStudents());
+
+
+                        db.collection(Email_Name)
+                                .document(Date)
+                                .collection(SubjectCode).document("Total").set(TotalStudentCount);
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        session.setTotalStudents(session.getTotalStudents()-1);
+                        ViewTotalStudents.setText(" "+session.getTotalStudents());
                         Toast.makeText(ViewStdInfo_RecycleView.this, "Try Again PLZ", Toast.LENGTH_SHORT).show();
                         //  Log.d(TAG, e.toString());
                     }

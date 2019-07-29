@@ -4,6 +4,7 @@
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="register">Register</string>
+    <string name="Total">Total</string>
 
     <!-- Button text -->
     <string name="btn_logout_from_google">Logout from Google</string>
