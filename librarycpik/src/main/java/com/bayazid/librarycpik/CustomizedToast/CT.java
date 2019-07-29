@@ -73,7 +73,7 @@ public class CT {
                 .borderCol(Color.BLACK)
                 .borderWidth(10)
                 .textCol(Color.WHITE)
-                .image(R.drawable.user_black)
+                .image(R.drawable.staff_icon)
                 .radius(50, 50, 50, 50)
                 .show();
     }
