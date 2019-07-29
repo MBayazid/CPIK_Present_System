@@ -22,26 +22,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
 import com.bayazid.librarycpik.CustomizedToast.CT;
-import com.facebook.AccessToken;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.auth.FirebaseUser;
@@ -49,7 +41,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.auth.UserInfo;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -108,7 +99,7 @@ public class Auth_MainActivity extends AppCompatActivity {
                         .createSignInIntentBuilder()
                         .setAlwaysShowSignInMethodScreen(true)
                         .setIsSmartLockEnabled(true)
-                        .setLogo(R.drawable.cpik_logo)      // Set logo drawable
+                        .setLogo(R.drawable.cpik_banar_logo)      // Set logo drawable
                         .setTheme(R.style.MySuperAppTheme)      // Set theme
                         .setAvailableProviders(providers)
                         .build(),
@@ -165,7 +156,7 @@ public class Auth_MainActivity extends AppCompatActivity {
 //                AuthUI.getInstance()
 //                        .createSignInIntentBuilder()
 //                        .setAvailableProviders(providers)
-//                        .setLogo(R.drawable.cpik_logo)      // Set logo drawable
+//                        .setLogo(R.drawable.cpik_banar_logo)      // Set logo drawable
 //                        .setTheme(R.style.MySuperAppTheme)// Set theme
 //                        .build(),
 //                RC_SIGN_IN);
@@ -547,10 +538,10 @@ public class Auth_MainActivity extends AppCompatActivity {
 //                });
 //        // [END update_password]
 //    }
-//    public void delete() {
+//    public void icon_exit_and_back() {
 //        // [START auth_fui_delete]
 //        AuthUI.getInstance()
-//                .delete(this)
+//                .icon_exit_and_back(this)
 //                .addOnCompleteListener(new OnCompleteListener<Void>() {
 //                    @Override
 //                    public void onComplete(@NonNull Task<Void> task) {
@@ -860,7 +851,7 @@ public class Auth_MainActivity extends AppCompatActivity {
 //        // [START delete_user]
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //
-//        user.delete()
+//        user.icon_exit_and_back()
 //                .addOnCompleteListener(new OnCompleteListener<Void>() {
 //                    @Override
 //                    public void onComplete(@NonNull Task<Void> task) {

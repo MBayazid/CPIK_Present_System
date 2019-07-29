@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bayazid.cpik_present_system.CommonFunctions;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.Students_List;
 import com.bayazid.cpik_present_system.Teachears_Function.Attendance_Book_Main;
@@ -22,8 +23,6 @@ import com.bayazid.cpik_present_system.R;
 import com.bayazid.cpik_present_system.Teachears_Function.Create_Student;
 import com.bayazid.cpik_present_system.Teachears_Function.Teacher_Class_type;
 import com.bayazid.librarycpik.TerminalAnimation.SplashScreen;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -34,22 +33,28 @@ import com.google.firebase.auth.FirebaseUser;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 public class Teachers_Panel extends AppCompatActivity {
-       Session session;
-    FirebaseAuth mAuth;
-    FirebaseUser mUser;
-    TextView Name, Email;
-    CircularImageView ProfilePic;
-    GoogleSignInClient mGoogleSignInClient;
+      private Session session;
+   private FirebaseAuth mAuth;
+   private FirebaseUser mUser;
+  private   TextView Name, Email;
+  private   CircularImageView ProfilePic;
+   private GoogleSignInClient mGoogleSignInClient;
+   private CommonFunctions commonFunctions;
 
     private Button SignOut, View_Schduled_Attendance,Take_Attendance,View_Attendance_Book, EditAttendance,Single_STD_Qurey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //start Animation
+        SplashScreen.show(this,SplashScreen.TERMINAL_ANIMATION);
+
         setContentView(R.layout.activity_teachers__panel);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //call Session data
         session=new Session(this);
+        //call CommonFunctions Class
+        commonFunctions=new CommonFunctions();
         //initillize id/+
         Name = findViewById(R.id.name);
         Email = findViewById(R.id.email);
@@ -64,57 +69,44 @@ public class Teachers_Panel extends AppCompatActivity {
         //firebase Auth innit
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        session.setTitle("SignIn");
-        session.setEamil(mUser.getEmail());
-        session.setName(mUser.getDisplayName());
-        session.setImageURL(mUser.getPhotoUrl().toString());
-        session.setuId(mUser.getUid().toString());
 
             String name = session.getName();
             String email = session.getEamil();
             String PhotoUri = session.getImageURL();
 
+        //update Teachers profile infoin Session
+        updateAdminProfileSecssion();
+
+            //set profile view
             Name.setText(name);
             Email.setText(email);
-        //start Animation
-        SplashScreen.show(this,SplashScreen.TERMINAL_ANIMATION);
+            commonFunctions.ImageGlider(getApplicationContext(),PhotoUri,ProfilePic);
 
-        RequestOptions options = new RequestOptions()
-                .circleCrop()
-                .centerCrop()
-                .placeholder(R.drawable.ic_round_user)
-                .error(R.drawable.ic_round_user);
-        Glide.with(Teachers_Panel.this).load(PhotoUri).apply(options).into(ProfilePic);
-        //update Teachers profile info
-        updateAdminProfile();
-
-        //Add Std Action
         EditAttendance.setOnClickListener(new View.OnClickListener() {
+            //Add EditAttendance Action
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Teachers_Panel.this, Create_Student.class));
             }
         });
-        //View Attendance Book
+
         View_Attendance_Book.setOnClickListener(new View.OnClickListener() {
+            //View Attendance Book
             @Override
             public void onClick(View view) {
 
             }
         });
 
-
-        //view Full Semester Action
         View_Schduled_Attendance.setOnClickListener(new View.OnClickListener() {
+            //view Full Semester Action
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), Attendance_Book_Main.class));
-
-
             }
         });
-        //take attendance action
         Take_Attendance.setOnClickListener(new View.OnClickListener() {
+            //take attendance action
             @Override
             public void onClick(View view) {
 //                startActivity(new Intent(getApplicationContext(), Post_Students_Attendance.class));
@@ -123,11 +115,13 @@ public class Teachers_Panel extends AppCompatActivity {
         });
 
         Single_STD_Qurey.setOnClickListener(new View.OnClickListener() {
+            //take Single_STD_Qurey action
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), Students_List.class));
             }
         });
+        //FloatingActionButton
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,10 +133,14 @@ public class Teachers_Panel extends AppCompatActivity {
 
     }
 
-    private void updateAdminProfile() {
-        //add profil info
-
-
+    private void updateAdminProfileSecssion() {
+        //store data to Sesion
+        session.setTitle("SignIn");
+        session.setEamil(mUser.getEmail());
+        session.setName(mUser.getDisplayName());
+        session.setImageURL(mUser.getPhotoUrl().toString());
+        session.setuId(mUser.getUid());
+        session.setuIdToken(mUser.getProviderId());
     }
 
     @Override
@@ -173,19 +171,20 @@ public class Teachers_Panel extends AppCompatActivity {
                 .signOut(this)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     public void onComplete(@NonNull Task<Void> task) {
-                        // ...
+                        // ...Clear Session
                         session.setisAdminEmail(false);
-                        Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
+                        session.setTitle("SignOut");
+                        session.setEamil(null);
+                        session.setName(null);
+                        session.setImageURL(null);
+                        session.setuId(null);
+                        session.setuIdToken(null);
+
+                        Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Teachers_Panel.this,Auth_MainActivity.class));
                         finish();
                     }
                 });
-//        session.setTitle("SignOut");
-//       Intent i=new Intent(Teachers_Panel.this,LoginActivity.class);
-//       i.putExtra("requestSignout","SignOut");
-//       startActivity(i);
-//        finish();
-        // [END auth_sign_out]
     }
 
 }

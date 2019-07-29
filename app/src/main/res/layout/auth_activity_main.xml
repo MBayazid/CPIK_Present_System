@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/cpik_logo"
+        android:src="@drawable/cpik_banar_logo"
         android:tint="@color/DarkSlateBlue" />
 
 

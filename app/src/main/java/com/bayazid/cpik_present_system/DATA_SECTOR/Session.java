@@ -9,7 +9,7 @@ public class Session {private SharedPreferences preferences;
     public Session(Context context){
         preferences = PreferenceManager.getDefaultSharedPreferences( context );
     }
-    //...Email
+    //...get Users Email
     public void setEamil(String email){
         preferences.edit().putString( "email", email ).commit();
     }
@@ -17,7 +17,8 @@ public class Session {private SharedPreferences preferences;
         String email = preferences.getString( "email", "" );
         return email;
     }
-    //.....ImageURL
+
+    //.....get Users ImageURL
     public void setImageURL(String image){
         preferences.edit().putString( "image", image ).commit();
     }
@@ -25,7 +26,8 @@ public class Session {private SharedPreferences preferences;
         String image = preferences.getString( "image", "" );
         return image;
     }
-    //Title
+
+    //get Users Title
     public void setTitle(String title){
         preferences.edit().putString( "full_name", title ).commit();
     }
@@ -33,7 +35,8 @@ public class Session {private SharedPreferences preferences;
         String title = preferences.getString( "full_name", "" );
         return title;
     }
-//NaME
+
+    //get Users NaME
     public void setName(String name){
         preferences.edit().putString( "name", name ).commit();
     }
@@ -41,7 +44,7 @@ public class Session {private SharedPreferences preferences;
         String name = preferences.getString( "name", "" );
         return name;
     }
-    //UID
+    //get UsersUID
     public void setuId(String uId){
         preferences.edit().putString( "uId", uId ).commit();
     }
@@ -49,7 +52,8 @@ public class Session {private SharedPreferences preferences;
         String uId = preferences.getString( "uId", "" );
         return uId;
     }
-    //idToken
+
+    //get Users idToken
     public void setuIdToken(String uId){
         preferences.edit().putString( "uId", uId ).commit();
     }
@@ -57,7 +61,8 @@ public class Session {private SharedPreferences preferences;
         String IdToken = preferences.getString( "IdToken", "" );
         return IdToken;
     }
-    //Contact Number
+
+    //get Users Contact Number
     public void setPhoneNumber(String PhoneNumber){
         preferences.edit().putString( "PhoneNumber", PhoneNumber ).commit();
     }
@@ -65,7 +70,7 @@ public class Session {private SharedPreferences preferences;
         String PhoneNumber = preferences.getString( "PhoneNumber", "" );
         return PhoneNumber;
     }
-    //get Admin Email
+    //get Admin Email to cheak curent email is an Admin or Not
     public void setisAdminEmail(boolean isAdminEmail){
         preferences.edit().putBoolean( "isAdminEmail", isAdminEmail ).commit();
     }
@@ -73,7 +78,12 @@ public class Session {private SharedPreferences preferences;
         boolean isAdminEmail = preferences.getBoolean( "isAdminEmail", false );
         return isAdminEmail;
     }
- //get Admin Email
+
+    //get Admin ID Token is an Admin or Not
+    public void setIdToken(boolean IdToken){  preferences.edit().putBoolean( "IdToken", IdToken ).commit(); }
+    public boolean getIdToken(){ boolean IdToken = preferences.getBoolean( "IdToken", false ); return IdToken; }
+
+    //count total presented students
     public void setTotalStudents(int TotalStudents){
         preferences.edit().putInt( "TotalStudents", TotalStudents ).commit();
     }

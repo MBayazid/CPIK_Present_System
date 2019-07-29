@@ -112,7 +112,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                        }else {
                            //set Switch= false at current position
                            std_data_sets.get(position).setSelect(isChecked);
-                           //delete students Attendance function
+                           //icon_exit_and_back students Attendance function
                            stdAttendanceDelete(stdDataSet.getCollege_Roll());
                        }
                    }
@@ -201,7 +201,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
             }
             return super.onOptionsItemSelected(item);
         }
-        //delete students Attendance function
+        //icon_exit_and_back students Attendance function
         private void stdAttendanceDelete(final String deleteRoll) {
 
 

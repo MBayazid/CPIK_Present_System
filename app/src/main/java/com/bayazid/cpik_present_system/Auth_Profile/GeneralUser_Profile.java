@@ -34,8 +34,7 @@ private Session session;
         setContentView(R.layout.activity_general_user__profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //start Animation
-        SplashScreen.show(this,SplashScreen.TERMINAL_ANIMATION);
+
        // session.setTitle("SignIn");
         session=new Session(this);
         if (!session.getEamil().equals(null)){

@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="75dp"
                 android:layout_height="54dp"
-                android:src="@drawable/logo_cpik" />
+                android:src="@drawable/cpik_logo_main" />
         </LinearLayout>
 
         <LinearLayout
