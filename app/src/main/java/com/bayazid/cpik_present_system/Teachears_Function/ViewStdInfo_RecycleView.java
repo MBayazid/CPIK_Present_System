@@ -48,18 +48,15 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     private STD_Recycler_Adapter mAdapter;
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
     private String Department,TechnologyName,Semester,SubjectCode,Date,TAG="View Student INFO Recycle.Activity";
-
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
-    private    String Email_Name,Person_Name;
+    private String Email_Name,Person_Name;
     public SwitchButton switchButton;
     private boolean intentData,haveTname;
     private TextView Header_Technology,Header_Semester,Header_Subject,Header_Date;
     private Session session;
     private int TotalStudents;
-    TextView ViewTotalStudents;
-
-
+    private TextView ViewTotalStudents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,14 +105,15 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                        Std_Data_set stdDataSet = std_data_sets.get(position);
 
                        if (isChecked==true){
+                           //set Switch= true at current position
                            std_data_sets.get(position).setSelect(isChecked);
-//                            Toast.makeText(ViewStdInfo_RecycleView.this,session.getTotalStudents()+" Total",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(ViewStdInfo_RecycleView.this,session.getTotalStudents()+" Total",Toast.LENGTH_SHORT).show();
                            addStdAttendance(stdDataSet.getCollege_Roll(),stdDataSet.getFirst_Name());
                        }else {
-                           //delete students Attendance function
+                           //set Switch= false at current position
                            std_data_sets.get(position).setSelect(isChecked);
+                           //delete students Attendance function
                            stdAttendanceDelete(stdDataSet.getCollege_Roll());
-
                        }
                    }
                });
@@ -145,7 +143,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),Teacher_Class_type.class));
                         ViewStdInfo_RecycleView.this.finish();}
     }
-        //Creat Room for Teachers
+        //Creat Room for Teachers / make date visible
         private void createTeachersRoom() {
             Map<String, Object> Teachers_class = new HashMap<>();
             Teachers_class.put("Teachers NAme",Person_Name);
@@ -251,7 +249,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         TotalStudentCount.put("Total",session.getTotalStudents());
 
 
-        // Add a new document with a generated ID
+        // Add a new Student's present list with a generated ID
         db.collection(Email_Name)
                 .document(Date)
                 .collection(SubjectCode)
@@ -281,6 +279,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     }
 
     private void getTechnologyName() {
+        //Get
         DocumentReference docRef =  db.collection("students_collection").document(Department);
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -290,8 +289,6 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         if (document.getId().equals(Department)){
-
-
                             TechnologyName= document.getString("TechnologyName");
 
                              Header_Technology.setText(TechnologyName);

@@ -186,7 +186,7 @@ public class Auth_MainActivity extends AppCompatActivity {
                 RC_SIGN_IN);
         // [END auth_fui_pp_tos]
     }
-    //Google Ui
+
     public void getUserProfile() {
         // [START get_user_profile]
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -359,21 +359,7 @@ public class Auth_MainActivity extends AppCompatActivity {
         // [END send_password_reset]
     }
 
-//    public void deleteUser() {
-//        // [START delete_user]
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//
-//        user.delete()
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Log.d(TAG, "User account deleted.");
-//                        }
-//                    }
-//                });
-//        // [END delete_user]
-//    }
+
 
     public void getGoogleCredentials() {
         String googleIdToken = "";
@@ -869,5 +855,20 @@ public class Auth_MainActivity extends AppCompatActivity {
 //        // have one; use FirebaseUser.getIdToken() instead.
 //        String uid = user.getUid();
 //        // [END games_get_user_info]
+//    }
+    //    public void deleteUser() {
+//        // [START delete_user]
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        user.delete()
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.d(TAG, "User account deleted.");
+//                        }
+//                    }
+//                });
+//        // [END delete_user]
 //    }
 }

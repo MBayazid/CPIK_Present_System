@@ -5,6 +5,22 @@
     <string name="sign_in">Sign In</string>
     <string name="register">Register</string>
     <string name="Total">Total</string>
+    <string name="StudentsRoot">students_collection</string>
+
+
+
+    <!-- Contact -->
+    <string name="contact">
+    যোগাযোগ
+
+    ১০৩ বিআইডিসি রোড, খালিশপুর
+    খুলনা
+
+    মোবাইল - +880 1750 154 334
+    ইমেইল - info@cpik.ac.bd
+
+</string>
+
 
     <!-- Button text -->
     <string name="btn_logout_from_google">Logout from Google</string>
