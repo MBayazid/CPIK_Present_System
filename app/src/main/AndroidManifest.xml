@@ -16,7 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".SplashScreen_Activity"
-            android:theme="@style/AppThemeNoActionBar">
+            android:theme="@style/AppThemeNoActionBarSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,21 +31,26 @@
             </intent-filter>
 
         </activity>
-        <activity android:theme="@style/AppTheme.NoActionBar"
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".Auth_Profile.Auth_MainActivity"/>
-
-        <activity android:name=".Scan_Cpik_Server.Get_Student_Group_JSON"/>
-        <activity android:name=".Teachears_Function.Attendance_Book_Child_1" />
-        <activity android:name=".Teachears_Function.Attendance_Book_Main" />
         <activity
             android:name=".Auth_Profile.GeneralUser_Profile"
             android:label="@string/title_activity_general_user__profile"
             android:parentActivityName=".Auth_Profile.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
-                <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.bayazid.cpik_present_system.Auth_Profile.LoginActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bayazid.cpik_present_system.Auth_Profile.LoginActivity" />
         </activity>
+        <activity android:name=".Scan_Cpik_Server.Get_Student_Group_JSON"/>
+        <activity android:name=".Teachears_Function.Attendance_Book_Child_1" />
+        <activity
+            android:theme="@style/AppThemeNoActionBar"
+            android:name=".Teachears_Function.Attendance_Book_Main"
+            android:parentActivityName=".Auth_Profile.Teachers_Panel"/>
+
+
 
         <activity
             android:name=".Auth_Profile.Teachers_Panel"

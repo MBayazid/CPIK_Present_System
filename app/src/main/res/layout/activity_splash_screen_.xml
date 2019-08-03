@@ -5,52 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreen_Activity"
-    android:background="#1A243C"
+    android:background="@color/darkBlue_SplashScreen"
     >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <RelativeLayout
-            android:id="@+id/cityTop"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/cityshilouetteupsidedown"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone">
-        </RelativeLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="56dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/cpik_logo_main"
+                    />
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="117dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/cpik_banar_logo"
-            app:layout_constraintBottom_toBottomOf="@+id/cityBottom"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cityTop"
-            app:layout_constraintVertical_bias="0.441" />
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen_40dp"
+                    android:id="@+id/cityBottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="@drawable/cpik_banner_text"
+                    android:visibility="visible">
 
-        <RelativeLayout
-            android:id="@+id/cityBottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/cityshilouette"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:visibility="gone">
+                </RelativeLayout>
 
-        </RelativeLayout>
-    </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
 
 </android.support.constraint.ConstraintLayout>

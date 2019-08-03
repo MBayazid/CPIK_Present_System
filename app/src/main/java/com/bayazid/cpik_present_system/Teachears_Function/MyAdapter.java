@@ -37,6 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         Std_Data_set stdDataSet = mData.get(position);
         holder.myTextView.setText(stdDataSet.getDbPathId());
+        holder.myTextView3.setText(stdDataSet.getDbPathIdClass());
     }
 
     // total number of rows
@@ -48,11 +49,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView myTextView,myTextView3;
 
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.textView2);
+            myTextView3 = itemView.findViewById(R.id.textView3);
             itemView.setOnClickListener(this);
         }
 

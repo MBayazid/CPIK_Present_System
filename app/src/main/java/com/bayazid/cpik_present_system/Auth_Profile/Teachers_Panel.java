@@ -10,17 +10,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.CommonFunctions;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
-import com.bayazid.cpik_present_system.Students_List;
 import com.bayazid.cpik_present_system.Teachears_Function.Attendance_Book_Main;
 import com.bayazid.cpik_present_system.R;
 
-import com.bayazid.cpik_present_system.Teachears_Function.Create_Student;
 import com.bayazid.cpik_present_system.Teachears_Function.Teacher_Class_type;
 import com.bayazid.librarycpik.TerminalAnimation.SplashScreen;
 
@@ -40,13 +40,16 @@ public class Teachers_Panel extends AppCompatActivity {
   private   CircularImageView ProfilePic;
    private GoogleSignInClient mGoogleSignInClient;
    private CommonFunctions commonFunctions;
+    private Animation slidOut, downToUp,fade,ZoomOut,ZoomIn,Bounce;
 
-    private Button SignOut, View_Schduled_Attendance,Take_Attendance,View_Attendance_Book, EditAttendance,Single_STD_Qurey;
+
+    private Button SignOut, View_Schduled_Attendance_Date,Take_Attendance,View_Attendance_Book, EditAttendance,Single_STD_Qurey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //start Animation
         SplashScreen.show(this,SplashScreen.TERMINAL_ANIMATION);
+
 
         setContentView(R.layout.activity_teachers__panel);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -60,11 +63,14 @@ public class Teachers_Panel extends AppCompatActivity {
         Email = findViewById(R.id.email);
         ProfilePic = findViewById(R.id.profilepic);
         // SignOut = findViewById(R.id.signout);
-        View_Schduled_Attendance = findViewById(R.id.view_scheduled_attendance_book_button4);
+        View_Schduled_Attendance_Date = findViewById(R.id.view_scheduled_attendance_book_button4);
         Take_Attendance = findViewById(R.id.take_attendance_button);
         View_Attendance_Book = findViewById(R.id.view_attendance_book_button3);
         EditAttendance = findViewById(R.id.edit_already_taken_btn);
         Single_STD_Qurey = findViewById(R.id.single_std_query__button4);
+        SignOut = findViewById(R.id.sign_out_button5);
+
+
 
         //firebase Auth innit
         mAuth = FirebaseAuth.getInstance();
@@ -82,26 +88,38 @@ public class Teachers_Panel extends AppCompatActivity {
             Email.setText(email);
             commonFunctions.ImageGlider(getApplicationContext(),PhotoUri,ProfilePic);
 
-        EditAttendance.setOnClickListener(new View.OnClickListener() {
+            EditAttendance.setOnClickListener(new View.OnClickListener() {
             //Add EditAttendance Action
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Teachers_Panel.this, Create_Student.class));
+            public void onClick(View view) {// load the animation
+//                Bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+//                        R.anim.bounce);
+//                EditAttendance.startAnimation(Bounce);
+               // startActivity(new Intent(Teachers_Panel.this, Create_Student.class));
             }
         });
 
         View_Attendance_Book.setOnClickListener(new View.OnClickListener() {
             //View Attendance Book
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {// load the animation
+                Bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.bounce);
+                View_Attendance_Book.startAnimation(Bounce);
+                Snackbar.make(view, "UP Cumming Feature", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
 
             }
         });
 
-        View_Schduled_Attendance.setOnClickListener(new View.OnClickListener() {
+        View_Schduled_Attendance_Date.setOnClickListener(new View.OnClickListener() {
             //view Full Semester Action
             @Override
             public void onClick(View view) {
+                // load the animation
+//                Bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+//                        R.anim.xoom_out);
+//                View_Schduled_Attendance_Date.startAnimation(Bounce);
                 startActivity(new Intent(getApplicationContext(), Attendance_Book_Main.class));
             }
         });
@@ -109,8 +127,13 @@ public class Teachers_Panel extends AppCompatActivity {
             //take attendance action
             @Override
             public void onClick(View view) {
+                // load the animation
+//                Bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+//                        R.anim.xoom_out);
+//                Take_Attendance.startAnimation(Bounce);
 //                startActivity(new Intent(getApplicationContext(), Post_Students_Attendance.class));
                 startActivity(new Intent(getApplicationContext(), Teacher_Class_type.class));
+
             }
         });
 
@@ -118,14 +141,30 @@ public class Teachers_Panel extends AppCompatActivity {
             //take Single_STD_Qurey action
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Students_List.class));
+                // load the animation
+                Bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.bounce);
+                Single_STD_Qurey.startAnimation(Bounce);
+                Snackbar.make(view, "UP Cumming Feature", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+              //  startActivity(new Intent(getApplicationContext(), Students_List.class));
+            }
+        });
+        SignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signOut();
             }
         });
         //FloatingActionButton
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // load the animation
+                Bounce = AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.bounce);
+                fab.startAnimation(Bounce);
                 Snackbar.make(view, "UP Cumming Feature", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -141,6 +180,7 @@ public class Teachers_Panel extends AppCompatActivity {
         session.setImageURL(mUser.getPhotoUrl().toString());
         session.setuId(mUser.getUid());
         session.setuIdToken(mUser.getProviderId());
+        session.setisAdminEmail(true);
     }
 
     @Override
@@ -179,6 +219,7 @@ public class Teachers_Panel extends AppCompatActivity {
                         session.setImageURL(null);
                         session.setuId(null);
                         session.setuIdToken(null);
+                        session.setPhoneNumber(null);
 
                         Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Teachers_Panel.this,Auth_MainActivity.class));
@@ -186,5 +227,6 @@ public class Teachers_Panel extends AppCompatActivity {
                     }
                 });
     }
+
 
 }

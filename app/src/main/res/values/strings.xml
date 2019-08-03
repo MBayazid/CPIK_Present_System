@@ -31,7 +31,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_teachers__panel">Teachers Panel</string>
     <string name="btn_logout_from_account">Sign Out</string>
-    <string name="title_activity_general_user__profile">GeneralUser_Profile</string>
+    <string name="title_activity_general_user__profile">Student Panel</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -47,4 +47,8 @@
 
     <string name="Root_URL">http://192.168.0.106/CPIK_APIs/</string>
     <string name="attendance"> </string>
+    <string name="menu_students">Student Panel</string>
+    <string name="menu_teacher">Teachers Panel</string>
+    <string name="menu_visit_cpik_web">CPIK Web Page</string>
+    <string name="menu_profile">Profile</string>
 </resources>

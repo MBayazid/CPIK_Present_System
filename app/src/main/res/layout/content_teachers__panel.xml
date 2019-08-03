@@ -8,7 +8,9 @@
     tools:context=".Auth_Profile.Teachers_Panel"
     tools:showIn="@layout/activity_teachers__panel">
 <LinearLayout
-    android:layout_margin="10dp"
+    android:layout_marginTop="@dimen/dimen_40dp"
+    android:layout_marginStart="@dimen/dimen_20dp"
+    android:layout_marginEnd="@dimen/dimen_20dp"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:layout_width="match_parent"
@@ -19,6 +21,8 @@
         android:id="@+id/take_attendance_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_20dp"
+        android:fontFamily="@font/vrindab"
 
         android:text="Take Attendance"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,6 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:textSize="@dimen/dimen_20dp"
+        android:fontFamily="@font/vrindab"
 
         android:background="@drawable/theme_button"
         android:textColor="@color/White"
@@ -49,6 +55,8 @@
         android:background="@drawable/theme_button"
         android:textColor="@color/White"
         android:id="@+id/edit_already_taken_btn"
+        android:textSize="@dimen/dimen_20dp"
+        android:fontFamily="@font/vrindab"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,6 +74,9 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="View Attendance Book"
+        android:textSize="@dimen/dimen_20dp"
+        android:fontFamily="@font/vrindab"
+
 
         android:textAllCaps="false"
 
@@ -80,6 +91,23 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Get Single Student Query Report"
+    android:textSize="@dimen/dimen_20dp"
+    android:fontFamily="@font/vrindab"
+
+        android:textAllCaps="false"
+
+        />
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/sign_out_button5"
+        android:background="@drawable/theme_button"
+        android:textColor="@color/White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Sign Out"
+    android:textSize="@dimen/dimen_20dp"
+    android:fontFamily="@font/bubblegum_sans"
 
         android:textAllCaps="false"
 

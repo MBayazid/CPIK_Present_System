@@ -1,23 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Teachears_Function.Attendance_Book_Main"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/cpik_dark_blue_color"
     >
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_attendance_book"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="@dimen/app_bar_height"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="@color/cpik_dark_blue_color">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
 
-</android.support.constraint.ConstraintLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_std_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:layout_gravity="bottom">
+
+                <include android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_toolbar_class_book_main"/>
+
+
+            </android.support.v7.widget.Toolbar>
+            <LinearLayout
+         android:layout_margin="@dimen/dimen_10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                android:id="@+id/linier_total_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="visible"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_people"
+                    android:tint="@color/white1"/>
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/total_students"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/white1"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen_20dp"/>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dimen_15dp"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_person_black_24dp"
+                        android:tint="@color/white1"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:gravity="center"
+                            android:id="@+id/single_students"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:textColor="@color/white1"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    android:gravity="start"
+                    android:id="@+id/single_students_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/white1"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/dimen_15dp" />
+            </LinearLayout>
+
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+<include layout="@layout/attendance_recycler"/>
+
+</android.support.design.widget.CoordinatorLayout>

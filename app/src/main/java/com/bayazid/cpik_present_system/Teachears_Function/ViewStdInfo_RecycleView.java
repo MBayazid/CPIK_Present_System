@@ -23,11 +23,13 @@ import com.bayazid.cpik_present_system.Scan_Cpik_Server.Get_Student_Group_JSON;
 import com.bayazid.cpik_present_system.Std_UI.STD_Recycler_Adapter;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Std_Data_set;
 import com.bayazid.librarycpik.Recycler_Function.RecyclerTouchListener;
+import com.bayazid.librarycpik.TerminalAnimation.SplashScreen;
 import com.bayazid.librarycpik.ToggleSwitchView.SwitchButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -38,6 +40,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.zxing.oned.Code93Reader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +58,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     private boolean intentData,haveTname;
     private TextView Header_Technology,Header_Semester,Header_Subject,Header_Date;
     private Session session;
-    private int TotalStudents;
+
     private TextView ViewTotalStudents;
 
     @Override
@@ -80,6 +83,8 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
          Email_Name=mUser.getEmail();
          Person_Name=mUser.getDisplayName();
+
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mAdapter = new STD_Recycler_Adapter(std_data_sets);
@@ -138,30 +143,36 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     //get Technology Name
                     getTechnologyName();
                     //Creat Teachers Attendance Room
-                   // createTeachersRoom();
+                    createTeachersRoom();
                     }else if (intentData==false){
                     startActivity(new Intent(getApplicationContext(),Teacher_Class_type.class));
                         ViewStdInfo_RecycleView.this.finish();}
     }
         //Creat Room for Teachers / make date visible
         private void createTeachersRoom() {
-            Map<String, Object> Teachers_class = new HashMap<>();
-            Teachers_class.put("Teachers NAme",Person_Name);
-            Teachers_class.put("visibility",true);
+
+            final Map<String, Object> Teachers_class = new HashMap<>();
+          // Teachers_class.put("TeacherName",session.getName());
+           //Teachers_class.put("date", new Timestamp(Date);
+            Teachers_class.put((Department+Semester),SubjectCode);
+//            Teachers_class.put("visibility",true);
             //Do Add mode About Teachers
-            db.collection(Email_Name)
+
+            db.collection(session.getEamil())
                     .document(Date)
-                    .set(Teachers_class)
+                    .update(Teachers_class)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(ViewStdInfo_RecycleView.this, " Start Your Class...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewStdInfo_RecycleView.this, "Your Class is Online.", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(ViewStdInfo_RecycleView.this, "Plz Check Ur Network", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(ViewStdInfo_RecycleView.this, "Plz Check Ur Network", Toast.LENGTH_SHORT).show();
+                            db.collection(session.getEamil())
+                                    .document(Date).set(Teachers_class);
                             //  Log.d(TAG, e.toString());
                         }
                     });
@@ -203,7 +214,12 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         }
         //icon_exit_and_back students Attendance function
         private void stdAttendanceDelete(final String deleteRoll) {
+            //view total attendance
+            session.setTotalStudents(session.getTotalStudents()-1);
+            ViewTotalStudents.setText(" "+session.getTotalStudents());
 
+            final Map<String, Object> TotalStudentCount = new HashMap<>();
+            TotalStudentCount.put("Total",session.getTotalStudents());
 
             db.collection(Email_Name)
                     .document(Date)
@@ -213,11 +229,14 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                           // Log.d(TAG, "DocumentSnapshot successfully deleted!");
-                            Toast.makeText(ViewStdInfo_RecycleView.this,deleteRoll+ " -- successfully Removed",Toast.LENGTH_SHORT).show();
                             //view total
-                            session.setTotalStudents(session.getTotalStudents()-1);
-                            ViewTotalStudents.setText(" "+session.getTotalStudents());
+
+                            db.collection(Email_Name)
+                                    .document(Date)
+                                    .collection(SubjectCode).document("Total").set(TotalStudentCount);
+
+                            // Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                            Toast.makeText(ViewStdInfo_RecycleView.this,deleteRoll+ " Removed",Toast.LENGTH_SHORT).show();
 
                         }
                     })
@@ -225,7 +244,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                            // Log.w(TAG, "Error deleting document", e);
-                            Toast.makeText(ViewStdInfo_RecycleView.this,"Error deleting "+ deleteRoll,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewStdInfo_RecycleView.this,"Error Retry.."+ deleteRoll,Toast.LENGTH_SHORT).show();
 
                         }
                     });
@@ -259,8 +278,6 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                        // Toast.makeText(ViewStdInfo_RecycleView.this, College_roll + " Added", Toast.LENGTH_SHORT).show();
-
-
                         db.collection(Email_Name)
                                 .document(Date)
                                 .collection(SubjectCode).document("Total").set(TotalStudentCount);
@@ -298,12 +315,15 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                              //get All STD Documents Data by Fields
                               getExpectedStudents();
                         }
+                       // Toast.makeText(getApplicationContext(),"Getting Error "+ task.getException(),Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
+                       // Toast.makeText(getApplicationContext(),"Getting Error "+ task.getException(),Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "No such document");
                         //If Not Existes
                     }
                 } else {
+                   // Toast.makeText(getApplicationContext(),"Getting Error "+ task.getException(),Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "get failed with ", task.getException());
                 }
             }

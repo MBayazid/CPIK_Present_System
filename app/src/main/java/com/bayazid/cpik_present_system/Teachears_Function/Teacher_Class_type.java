@@ -76,9 +76,8 @@ public class Teacher_Class_type extends AppCompatActivity {
                 String Sub_Code= SubjectCode.getText().toString();
 
                 if (Sub_Code.isEmpty()==false &&  Sub_Code.length()>=4){
-
-                    Intent passIntent=new Intent(Teacher_Class_type.this, ViewStdInfo_RecycleView.class);
                     //send data to next Activity
+                    Intent passIntent=new Intent(Teacher_Class_type.this, ViewStdInfo_RecycleView.class);
                     passIntent.putExtra("department",Department);
                     passIntent.putExtra("semester",Semester);
                     passIntent.putExtra("subCode",Sub_Code);
@@ -104,7 +103,7 @@ public class Teacher_Class_type extends AppCompatActivity {
                     String Sub_Code= SubjectCode.getText().toString();
                     if (Sub_Code.isEmpty()==false &&  Sub_Code.length()>=4){
 
-                                            db.collection(session.getEamil())
+              db.collection(session.getEamil())
                         .document(Date)
                         .collection(Sub_Code)
                         .get()
@@ -150,4 +149,15 @@ public class Teacher_Class_type extends AppCompatActivity {
         //alertDialog.show();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        session.setTotalStudents(0);
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        session.setTotalStudents(0);
+    }
 }

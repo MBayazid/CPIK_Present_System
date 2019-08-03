@@ -17,6 +17,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.bayazid.cpik_present_system.Auth_Profile.Fragments.ProfileFragment;
+import com.bayazid.cpik_present_system.Auth_Profile.Fragments.StudentsFragment;
+import com.bayazid.cpik_present_system.Auth_Profile.Fragments.TeachersFragment;
+import com.bayazid.cpik_present_system.Auth_Profile.Fragments.WebViewFragment;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
 import com.bayazid.cpik_present_system.Students_List;
@@ -34,14 +38,14 @@ private Session session;
         setContentView(R.layout.activity_general_user__profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        setTitle(" ");
        // session.setTitle("SignIn");
         session=new Session(this);
-        if (!session.getEamil().equals(null)){
-            setTitle(session.getName());
-        }else {
-            setTitle(session.getPhoneNumbern());
-        }
+//        if (!session.getEamil().equals(null)){
+//          //  setTitle(session.getName());
+//        }if(!session.getPhoneNumbern().equals(null)){
+//            // setTitle(session.getPhoneNumbern());
+//        } else { }
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -52,8 +56,10 @@ private Session session;
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -71,39 +77,39 @@ private Session session;
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.general_user__profile, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_signout) {
-
-                // [START auth_fui_signout]
-                AuthUI.getInstance()
-                        .signOut(this)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            public void onComplete(@NonNull Task<Void> task) {                        // ...
-                                Toast.makeText(getApplicationContext(),"Signed Out", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(GeneralUser_Profile.this,Auth_MainActivity.class));
-                                finish();
-                            }
-                        });
-            return true;
-
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.general_user__profile, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_signout) {
+//
+//                // [START auth_fui_signout]
+//                AuthUI.getInstance()
+//                        .signOut(this)
+//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            public void onComplete(@NonNull Task<Void> task) {                        // ...
+//                                Toast.makeText(getApplicationContext(),"Signed Out", Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(GeneralUser_Profile.this,Auth_MainActivity.class));
+//                                finish();
+//                            }
+//                        });
+//            return true;
+//
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -111,17 +117,22 @@ private Session session;
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        if (item == null){
 
-        if (id == R.id.nav_home) {
+        }
+
+        if (id == R.id.nav_students) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(GeneralUser_Profile.this, Students_List.class));
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new StudentsFragment()).commit();
+        } else if (id == R.id.nav_teachers) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new TeachersFragment()).commit();
+        }  else if (id == R.id.nav_prfile) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new ProfileFragment()).commit();
+        } else if (id == R.id.nav_visit) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new WebViewFragment()).commit();
+        }  else if (id == R.id.nav_sign_out) {
+            signOut();
+        }  else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
@@ -130,6 +141,28 @@ private Session session;
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void signOut() {
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...Clear Session
+                        session.setisAdminEmail(false);
+                        session.setTitle("SignOut");
+                        session.setEamil(null);
+                        session.setName(null);
+                        session.setImageURL(null);
+                        session.setuId(null);
+                        session.setuIdToken(null);
+
+                        session.setPhoneNumber(null);
+
+                        Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(GeneralUser_Profile.this,Auth_MainActivity.class));
+                        finish();
+                    }
+                });
     }
 
 

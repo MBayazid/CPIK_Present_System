@@ -15,8 +15,8 @@ import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 
 public class SplashScreen_Activity extends AppCompatActivity {
     private ImageView logo;
-    private RelativeLayout cityTop, cityBottom;
-    private Animation upToDown, downToUp, fade,zoomIn;
+    private RelativeLayout cityBottom;
+    private Animation upToDown, downToUp, ZoomIn,zoomIn;
     private Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +35,16 @@ public class SplashScreen_Activity extends AppCompatActivity {
 
         //init views
         logo = findViewById(R.id.logo);
-        cityTop = findViewById(R.id.cityTop);
+      //  cityTop = findViewById(R.id.cityTop);
         cityBottom = findViewById(R.id.cityBottom);
 
         //set up animation
         upToDown = AnimationUtils.loadAnimation(this, R.anim.uptodown);
         downToUp = AnimationUtils.loadAnimation(this, R.anim.downtoup);
-        fade = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        ZoomIn = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
 //        cityTop.setAnimation(upToDown);
-//        cityBottom.setAnimation(downToUp);
-        logo.setAnimation(downToUp);
+       cityBottom.setAnimation(downToUp);
+        logo.setAnimation(ZoomIn);
 
 
 

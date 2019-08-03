@@ -1,18 +1,3 @@
-/*
- * Copyright 2017 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.bayazid.cpik_present_system.Auth_Profile;
 
 import android.content.Intent;
@@ -86,20 +71,17 @@ public class Auth_MainActivity extends AppCompatActivity {
         // [START auth_fui_create_intent]
         // Choose authentication providers
         List<AuthUI.IdpConfig> providers = Arrays.asList(
-
                 new AuthUI.IdpConfig.PhoneBuilder().build()
                 , new AuthUI.IdpConfig.GoogleBuilder().build()
-               //, new AuthUI.IdpConfig.FacebookBuilder().build()
-                //,new AuthUI.IdpConfig.TwitterBuilder().build()
-                // new AuthUI.IdpConfig.EmailBuilder().build(),
+
         );
         // Create and launch sign-in intent
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
-                        .setAlwaysShowSignInMethodScreen(true)
-                        .setIsSmartLockEnabled(true)
-                        .setLogo(R.drawable.cpik_banar_logo)      // Set logo drawable
+                        .setAlwaysShowSignInMethodScreen(false)
+                        .setIsSmartLockEnabled(false)
+                        .setLogo(R.drawable.cpik_logo_old_blue)      // Set logo drawable
                         .setTheme(R.style.MySuperAppTheme)      // Set theme
                         .setAvailableProviders(providers)
                         .build(),
@@ -114,21 +96,25 @@ public class Auth_MainActivity extends AppCompatActivity {
 
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
+            // User is signed in
+            getUserProfile();
+            //getProviderData();
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 // User is signed in
                 getUserProfile();
-               // Toast.makeText(this,"SignIn Successful..",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"SignIn Successful..",Toast.LENGTH_SHORT).show();
                 // ...
             } else {
                 // Sign in failed. If response is null the user canceled the
                 // sign-in flow using the back button. Otherwise check
                 // response.getError().getErrorCode() and handle the error.
                 // ...
-                finish();
+
                 Toast.makeText(this,"SignIn Failed..",Toast.LENGTH_SHORT).show();
+                finish();
             }
         }
     }
@@ -163,20 +149,20 @@ public class Auth_MainActivity extends AppCompatActivity {
 //        // [END auth_fui_theme_logo]
 //    }
 
-    public void privacyAndTerms() {
-        List<AuthUI.IdpConfig> providers = Collections.emptyList();
-        // [START auth_fui_pp_tos]
-        startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .setTosAndPrivacyPolicyUrls(
-                                "https://example.com/terms.html",
-                                "https://example.com/privacy.html")
-                        .build(),
-                RC_SIGN_IN);
-        // [END auth_fui_pp_tos]
-    }
+//    public void privacyAndTerms() {
+//        List<AuthUI.IdpConfig> providers = Collections.emptyList();
+//        // [START auth_fui_pp_tos]
+//        startActivityForResult(
+//                AuthUI.getInstance()
+//                        .createSignInIntentBuilder()
+//                        .setAvailableProviders(providers)
+//                        .setTosAndPrivacyPolicyUrls(
+//                                "https://example.com/terms.html",
+//                                "https://example.com/privacy.html")
+//                        .build(),
+//                RC_SIGN_IN);
+//        // [END auth_fui_pp_tos]
+//    }
 
     public void getUserProfile() {
         // [START get_user_profile]
@@ -193,11 +179,11 @@ public class Auth_MainActivity extends AppCompatActivity {
             // The user's ID, unique to the Firebase project. Do NOT use this value to
             // authenticate with your backend server, if you have one. Use
             // FirebaseUser.getIdToken() instead.
-            String uid = user.getUid();
+
 
 
             if (emailVerified==true&&!email.equals(null)){
-                adminIdFinder(email,uid);
+                adminIdFinder(email);
             }else {
                 //mobile number
                 Toast.makeText(this,PhoneNumber,Toast.LENGTH_SHORT).show();
@@ -210,7 +196,7 @@ public class Auth_MainActivity extends AppCompatActivity {
         // [END get_user_profile]
     }
 
-    private void adminIdFinder(final String email,final String uId) {
+    private void adminIdFinder(final String email) {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         //Cheak if Email Admin Auth Email
             db.collection("Teachers_Collection")
@@ -280,75 +266,75 @@ public class Auth_MainActivity extends AppCompatActivity {
                 String name = profile.getDisplayName();
                 String email = profile.getEmail();
                 Uri photoUrl = profile.getPhotoUrl();
-                Toast.makeText(this," User Name= "+name,Toast.LENGTH_SHORT).show();
+                Toast.makeText(this," User Name= "+providerId,Toast.LENGTH_SHORT).show();
             }
         }
         // [END get_provider_data]
     }
 
 
-    public void sendEmailVerification() {
-        // [START send_email_verification]
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-
-        user.sendEmailVerification()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Email sent.");
-                        }
-                    }
-                });
-        // [END send_email_verification]
-    }
-    public void sendEmailVerificationWithContinueUrl() {
-        // [START send_email_verification_with_continue_url]
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-
-        String url = "http://www.example.com/verify?uid=" + user.getUid();
-        ActionCodeSettings actionCodeSettings = ActionCodeSettings.newBuilder()
-                .setUrl(url)
-                .setIOSBundleId("com.example.ios")
-                // The default for this is populated with the current android package name.
-                .setAndroidPackageName("com.example.android", false, null)
-                .build();
-
-        user.sendEmailVerification(actionCodeSettings)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Email sent.");
-                        }
-                    }
-                });
-
-        // [END send_email_verification_with_continue_url]
-        // [START localize_verification_email]
-        auth.setLanguageCode("fr");
-        // To apply the default app language instead of explicitly setting it.
-        // auth.useAppLanguage();
-        // [END localize_verification_email]
-    }
-    public void sendPasswordReset() {
-        // [START send_password_reset]
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String emailAddress = "user@example.com";
-
-        auth.sendPasswordResetEmail(emailAddress)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Email sent.");
-                        }
-                    }
-                });
-        // [END send_password_reset]
-    }
+//    public void sendEmailVerification() {
+//        // [START send_email_verification]
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        FirebaseUser user = auth.getCurrentUser();
+//
+//        user.sendEmailVerification()
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.d(TAG, "Email sent.");
+//                        }
+//                    }
+//                });
+//        // [END send_email_verification]
+//    }
+//    public void sendEmailVerificationWithContinueUrl() {
+//        // [START send_email_verification_with_continue_url]
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        FirebaseUser user = auth.getCurrentUser();
+//
+//        String url = "http://www.example.com/verify?uid=" + user.getUid();
+//        ActionCodeSettings actionCodeSettings = ActionCodeSettings.newBuilder()
+//                .setUrl(url)
+//                .setIOSBundleId("com.example.ios")
+//                // The default for this is populated with the current android package name.
+//                .setAndroidPackageName("com.example.android", false, null)
+//                .build();
+//
+//        user.sendEmailVerification(actionCodeSettings)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.d(TAG, "Email sent.");
+//                        }
+//                    }
+//                });
+//
+//        // [END send_email_verification_with_continue_url]
+//        // [START localize_verification_email]
+//        auth.setLanguageCode("fr");
+//        // To apply the default app language instead of explicitly setting it.
+//        // auth.useAppLanguage();
+//        // [END localize_verification_email]
+//    }
+//    public void sendPasswordReset() {
+//        // [START send_password_reset]
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        String emailAddress = "user@example.com";
+//
+//        auth.sendPasswordResetEmail(emailAddress)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.d(TAG, "Email sent.");
+//                        }
+//                    }
+//                });
+//        // [END send_password_reset]
+//    }
 
 
 
@@ -454,16 +440,14 @@ public class Auth_MainActivity extends AppCompatActivity {
         session.setuId(user.getUid());
 
         if (session.getisAdminEmail()==true){
-            CT.success(getApplicationContext(),session.getEamil()+"\n"+session.getName());
+           // CT.success(getApplicationContext(),session.getEamil()+"\n"+session.getName());
 //            Toast.makeText(getApplicationContext(),,Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,Teachers_Panel.class));
             finish();
 
-        }else {
+        }if(session.getisAdminEmail()==false) {
            // Toast.makeText(getApplicationContext(),"Students Account",Toast.LENGTH_SHORT).show();
-            CT.success(getApplicationContext(),session.getEamil()+"\n"+session.getName());
-
-
+            //CT.success(getApplicationContext(),session.getEamil()+"\n"+session.getName());
             startActivity(new Intent(this,GeneralUser_Profile.class));
             finish();
         }

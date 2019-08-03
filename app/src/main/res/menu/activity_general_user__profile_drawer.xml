@@ -5,25 +5,32 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_students"
+            android:icon="@drawable/icon_education_hat"
+            android:title="@string/menu_students" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:iconTintMode="src_atop"
+            android:id="@+id/nav_teachers"
+            android:icon="@drawable/staff_icon"
+            android:title="@string/menu_teacher" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_prfile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/menu_profile" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_visit"
+            android:icon="@drawable/cpik_logo_main"
+            android:title="@string/menu_visit_cpik_web" />
+
     </group>
 
     <item android:title="Communicate">
         <menu>
+            <item
+                android:id="@+id/nav_sign_out"
+                android:icon="@drawable/ic_lock_outline_black_24dp"
+                android:title="@string/btn_logout_from_account" />
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
@@ -32,6 +39,7 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_send" />
+
         </menu>
     </item>
 

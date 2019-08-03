@@ -79,7 +79,7 @@
     <color name="Khaki">#F0E68C</color>
     <color name="LightCoral">#F08080</color>
     <color name="PaleGoldenrod">#EEE8AA</color>
-    <color name="Violet">#EE82EE</color>
+    <color name="cpik_dark_blue_color">#283842</color>
     <color name="DarkSalmon">#E9967A</color>
     <color name="Lavender">#E6E6FA</color>
     <color name="LightCyan">#E0FFFF</color>
@@ -169,7 +169,7 @@
     <color name="Blue">#0000FF</color>
     <color name="MediumBlue">#0000CD</color>
     <color name="DarkBlue">#00008B</color>
-    <color name="Navy">#000080</color>
+    <color name="darkBlue_SplashScreen">#1A243C</color>
     <color name="grey">#e5e5e5</color>
     <color name="Black">#000000</color>
 

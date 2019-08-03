@@ -28,8 +28,10 @@
                 android:layout_height="@dimen/toolbar_profile_width"
                 android:scaleType="centerInside"
                 android:src="@drawable/cityshilouette"
-                app:civ_border_color="@android:color/black"
-                app:civ_border_width="2dp" />
+                app:civ_border_color="@color/LightSlateGray"
+                app:civ_border_width="2dp"
+                app:civ_shadow="true"
+                app:civ_shadow_radius="1"/>
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/img_plus"
@@ -37,37 +39,42 @@
                 android:layout_height="@dimen/ic_plus_width"
                 android:layout_alignBottom="@id/profilepic"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/ic_camera_black_24dp"
-                android:tint="@color/colorAccent"
+                android:background="@drawable/ic_camera_alt_black_24dp"
+                android:backgroundTint="@color/colorPrimary"
                 app:civ_shadow="true"
                 app:civ_shadow_radius="1"
-                android:outlineSpotShadowColor="@color/blue1"/>
+                app:civ_shadow_color="@color/colorPrimary" />
         </RelativeLayout>
 
         <LinearLayout
+            android:layout_marginStart="@dimen/dimen_20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:gravity="center"
+            android:gravity="start|center_vertical"
             android:orientation="vertical">
 
             <TextView
+                android:textAllCaps="true"
                 android:textColor="@color/White"
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textStyle="bold|italic"
+                android:textStyle="bold"
 
                 android:text="Name"
                 android:textSize="19sp"
                 app:layout_constraintBottom_toTopOf="@+id/email"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:shadowRadius="1"
+                android:shadowColor="@color/CadetBlue"
+                android:shadowDx="2"
+                android:shadowDy="2"/>
 
             <TextView
                 android:textColor="@color/White"
-
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,7 +82,36 @@
                 android:text="Email"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:shadowRadius="1"
+                android:shadowColor="@color/CadetBlue"
+                android:shadowDx="2"
+                android:shadowDy="2"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acting As : "
+                    android:gravity="center"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:id="@+id/admin_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_activity_teachers__panel"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowRadius="1"
+                    android:shadowColor="@color/Black"
+                    android:shadowDx="2"
+                    android:shadowDy="2"/>
+            </LinearLayout>
+
 
 
         </LinearLayout>
