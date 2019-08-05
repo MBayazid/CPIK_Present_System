@@ -50,7 +50,7 @@ public class Auth_MainActivity extends AppCompatActivity {
         session=new Session(this);
         //cheak User
         //themeAndLogo();
-//        checkCurrentUser();
+        checkCurrentUser();
     }
     public void checkCurrentUser() {
         // [START check_current_user]
@@ -187,6 +187,8 @@ public class Auth_MainActivity extends AppCompatActivity {
             }else {
                 //mobile number
                 Toast.makeText(this,PhoneNumber,Toast.LENGTH_SHORT).show();
+                session.setPhoneNumber(PhoneNumber);
+
              startActivity(new Intent(Auth_MainActivity.this,GeneralUser_Profile.class));
              finish();
             }
@@ -462,14 +464,14 @@ public class Auth_MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        checkCurrentUser();
+       // checkCurrentUser();
     }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        checkCurrentUser();
 
+    @Override
+    protected void onResume() {
+      //  checkCurrentUser();
+        super.onResume();
     }
     //    public void updateProfile() {
 //        // [START update_profile]

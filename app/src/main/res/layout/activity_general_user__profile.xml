@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    tools:context=".Auth_Profile.GeneralUser_Profile"
     tools:openDrawer="start">
 
     <include
@@ -18,8 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/nav_drawer_blue_theam_color"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_general_user__profile"
+        app:itemHorizontalPadding="@dimen/dimen_20dp"
+        app:itemIconTint="@color/White"
+        app:itemTextColor="@color/white1"
         app:menu="@menu/activity_general_user__profile_drawer" />
+
 
 </android.support.v4.widget.DrawerLayout>

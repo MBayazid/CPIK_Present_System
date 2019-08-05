@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn="navigation_view"
+    android:background="@color/nav_drawer_blue_theam_color"
+    >
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_prfile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/menu_profile" />
+        <item
+
             android:id="@+id/nav_students"
             android:icon="@drawable/icon_education_hat"
             android:title="@string/menu_students" />
         <item
+
             android:iconTintMode="src_atop"
             android:id="@+id/nav_teachers"
             android:icon="@drawable/staff_icon"
             android:title="@string/menu_teacher" />
 
-        <item
-            android:id="@+id/nav_prfile"
-            android:icon="@drawable/ic_person_black_24dp"
-            android:title="@string/menu_profile" />
+
         <item
             android:id="@+id/nav_visit"
             android:icon="@drawable/cpik_logo_main"
@@ -29,7 +34,7 @@
         <menu>
             <item
                 android:id="@+id/nav_sign_out"
-                android:icon="@drawable/ic_lock_outline_black_24dp"
+                android:icon="@drawable/ic_export"
                 android:title="@string/btn_logout_from_account" />
             <item
                 android:id="@+id/nav_share"

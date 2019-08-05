@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,12 +17,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.Auth_Profile.Fragments.ProfileFragment;
 import com.bayazid.cpik_present_system.Auth_Profile.Fragments.StudentsFragment;
 import com.bayazid.cpik_present_system.Auth_Profile.Fragments.TeachersFragment;
 import com.bayazid.cpik_present_system.Auth_Profile.Fragments.WebViewFragment;
+import com.bayazid.cpik_present_system.CommonFunctions;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
 import com.bayazid.cpik_present_system.Students_List;
@@ -28,24 +33,68 @@ import com.bayazid.librarycpik.TerminalAnimation.SplashScreen;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 public class GeneralUser_Profile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 private Session session;
+private TextView headerName,headerPhoneNumber;
+private TextView headerEmail;
+private CircularImageView headerPhoto;
+private CommonFunctions commonFunctions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_user__profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setTitle(" ");
-       // session.setTitle("SignIn");
+
         session=new Session(this);
-//        if (!session.getEamil().equals(null)){
-//          //  setTitle(session.getName());
-//        }if(!session.getPhoneNumbern().equals(null)){
-//            // setTitle(session.getPhoneNumbern());
-//        } else { }
+        //call CommonFunctions Class
+        commonFunctions=new CommonFunctions();
+
+
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+        setTitle(" ");
+
+
+
+
+        View headerView = navigationView.getHeaderView(0);
+
+        headerEmail=(TextView)headerView.findViewById(R.id.header_email);
+        headerName= (TextView) headerView.findViewById(R.id.header_name);
+        headerPhoneNumber= (TextView) headerView.findViewById(R.id.header_Mobile);
+        headerPhoto=(CircularImageView) headerView.findViewById(R.id.header_image);
+
+        if (!session.getEamil().equals(null)){
+            headerPhoneNumber.setVisibility(View.GONE);
+            headerEmail.setText(session.getEamil());
+            headerName.setText(session.getName());
+            commonFunctions.ImageGlider(getApplicationContext(),session.getImageURL(),headerPhoto);
+            if (session.getisAdminEmail()==true){
+
+
+
+            }
+        } else if(!session.getPhoneNumbern().equals(null)){
+//            headerPhoneNumber.setVisibility(View.VISIBLE);
+
+            headerPhoneNumber.setText(session.getPhoneNumbern());
+
+        }
+        else {
+
+        }
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -57,14 +106,7 @@ private Session session;
             }
         });
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -117,6 +159,11 @@ private Session session;
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        if (session.getisAdminEmail()==true){
+
+
+
+        }
         if (item == null){
 
         }

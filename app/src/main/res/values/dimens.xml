@@ -21,5 +21,7 @@
     <dimen name="circleImg">10</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="dimen_5dp">5dp</dimen>
+    <dimen name="dimen_25dp">25dp</dimen>
 
 </resources>
