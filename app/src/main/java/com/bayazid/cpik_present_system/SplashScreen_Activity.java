@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.bayazid.cpik_present_system.Auth_Profile.Auth_MainActivity;
+import com.bayazid.cpik_present_system.Auth_Profile.GeneralUser_Profile;
 import com.bayazid.cpik_present_system.Auth_Profile.Teachers_Panel;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 
@@ -52,7 +53,7 @@ public class SplashScreen_Activity extends AppCompatActivity {
             @Override
             public void run() {
                 if (admin!=false && title!=null&& email!=null&& name!=null&& PicUrl!=null&& uId!=null&& idToken!=null){
-                    Intent intent = new Intent(SplashScreen_Activity.this, Teachers_Panel.class);
+                    Intent intent = new Intent(SplashScreen_Activity.this, GeneralUser_Profile.class);
                     startActivity(intent);
                     finish();
 

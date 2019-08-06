@@ -1,329 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cpik_dark_blue_color"
-    >
+    android:background="@color/nav_drawer_blue_theam_color">
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dimen_40dp"
+            android:layout_weight="8.6"
+            android:columnCount="2"
+            android:elevation="@dimen/dimen_5dp"
+            android:fadingEdge="horizontal|vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layerType="software"
+            android:orientation="horizontal"
+            android:rowCount="3">
+
+            <!-- Row 1 -->
+
+            <!-- Column 1 -->
+            <RelativeLayout
+
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:id="@+id/studentButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/hat_logo_green"
+                        android:tint="@color/white1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+
+                        android:fontFamily="@font/headland_one"
+                        android:text="Student's"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+                        android:textStyle="bold|italic"
+                        android:typeface="monospace" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- Column 2 -->
+            <RelativeLayout
 
 
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
 
-    <GridLayout
-    android:layout_width="match_parent"
-    android:layout_weight="8.6"
-    android:layout_height="0dp"
-    android:layout_margin="@dimen/dimen_40dp"
-    android:columnCount="2"
+                android:clickable="true"
+                android:focusable="true">
 
-    android:fadingEdge="horizontal|vertical"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:layerType="software"
-    android:orientation="horizontal"
-    android:rowCount="3"
-    >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:weightSum="10">
 
-    <!-- Row 1 -->
+                    <ImageView
+                        android:id="@+id/teacherBitton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/teacher_in_a_class"
+                        android:tint="@color/white1" />
 
-    <!-- Column 1 -->
-    <RelativeLayout
-    android:id="@+id/studentButton"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_rowWeight="1"
-    android:layout_columnWeight="1"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginBottom="16dp"
-    android:background="@android:color/transparent"
-    android:clickable="true"
-    android:focusable="true"  >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:fontFamily="@font/headland_one"
+                        android:text="Class Room"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+                        android:textStyle="bold|italic" />
 
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical"
-    android:layout_margin="1dp"
-    android:background="@android:color/transparent"
-    android:backgroundTint="@android:color/transparent"
-    android:orientation="vertical"
-    android:weightSum="10">
-
-    <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight="2"
-    android:background="@android:color/transparent"
-    android:src="@drawable/hat_logo_green"
-        android:tint="@color/white1"/>
-
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="8"
-
-    android:fontFamily="@font/headland_one"
-    android:text="Student's"
-    android:textAlignment="center"
-    android:textAllCaps="false"
-    android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
-    android:textStyle="bold|italic"
-    android:typeface="monospace" />
-
-    </LinearLayout>
-
-    </RelativeLayout>
-
-    <!-- Column 2 -->
-    <RelativeLayout
+                </LinearLayout>
+            </RelativeLayout>
 
 
-    android:id="@+id/teacherBitton"
-    android:layout_width="0dp"
-    android:layout_height="4dp"
-    android:layout_rowWeight="1"
-    android:layout_columnWeight="1"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginBottom="16dp"
+            <!-- Row 2 -->
 
-    android:clickable="true"
-    android:focusable="true"
-    >
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical"
-    android:layout_margin="1dp"
-    android:background="@android:color/transparent"
-    android:orientation="vertical"
-    android:weightSum="10">
+            <!-- Column 1 -->
+            <RelativeLayout
 
-    <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="2"
-    android:layout_gravity="center_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true">
 
-    android:background="@android:color/transparent"
-    android:src="@drawable/teacher_in_a_class" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:weightSum="10">
 
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="8"
-    android:fontFamily="@font/headland_one"
-    android:text="Teacher's"
-    android:textAlignment="center"
-    android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
-    android:textStyle="bold|italic" />
+                    <ImageView
+                        android:id="@+id/support_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/suport_team1"
+                        android:tint="@color/white1" />
 
-    </LinearLayout>
-    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:fontFamily="@font/headland_one"
+                        android:text="Get Help"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+                        android:textStyle="bold|italic" />
 
+                </LinearLayout>
 
-    <!-- Row 2 -->
+            </RelativeLayout>
 
-    <!-- Column 1 -->
-    <RelativeLayout
-    android:id="@+id/managment_btn"
-    android:layout_width="0dp"
-    android:layout_height="4dp"
-    android:layout_rowWeight="1"
-    android:layout_columnWeight="1"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginBottom="16dp"
-    android:background="@android:color/transparent"
-    android:clickable="true"
-    android:focusable="true">
+            <!-- Column 2 -->
+            <RelativeLayout
 
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical"
-    android:layout_margin="1dp"
-    android:background="@android:color/transparent"
-    android:orientation="vertical"
-    android:weightSum="10">
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true">
 
-    <ImageView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:weightSum="10">
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight="2"
-    android:background="@android:color/transparent"
-    android:src="@drawable/suport_team1" />
+                    <ImageView
+                        android:id="@+id/gardenBtton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/parent_logo_blue"
+                        android:tint="@color/white1" />
 
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="8"
-    android:fontFamily="@font/headland_one"
-    android:text="Get Help"
-    android:textAlignment="center"
-    android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
-    android:textStyle="bold|italic" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:fontFamily="@font/headland_one"
+                        android:text="Gardian's"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+                        android:textStyle="bold|italic" />
 
-    </LinearLayout>
+                </LinearLayout>
 
-    </RelativeLayout>
-
-    <!-- Column 2 -->
-    <RelativeLayout
-    android:id="@+id/gardenBtton"
-    android:layout_width="0dp"
-    android:layout_height="4dp"
-    android:layout_rowWeight="1"
-    android:layout_columnWeight="1"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginBottom="16dp"
-    android:background="@android:color/transparent"
-    android:clickable="true"
-    android:focusable="true"
-    >
-
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical"
-    android:layout_margin="1dp"
-    android:background="@android:color/transparent"
-    android:orientation="vertical"
-    android:weightSum="10">
-
-    <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight="2"
-    android:background="@android:color/transparent"
-    android:src="@drawable/parent_logo_blue"
-        android:tint="@color/white1"/>
-
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="8"
-    android:fontFamily="@font/headland_one"
-    android:text="Gardian's"
-    android:textAlignment="center"
-    android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
-    android:textStyle="bold|italic" />
-
-    </LinearLayout>
-
-    </RelativeLayout>
+            </RelativeLayout>
 
 
-    <!-- Row 2 -->
+            <!-- Row 2 -->
 
-    <!-- Column 1 -->
-    <RelativeLayout
-    android:id="@+id/visitButton"
-    android:layout_width="0dp"
-    android:layout_height="4dp"
-    android:layout_rowWeight="1"
-    android:layout_columnWeight="1"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginBottom="16dp"
-    android:background="@android:color/transparent"
-    android:clickable="true"
-    android:focusable="true">
+            <!-- Column 1 -->
+            <RelativeLayout
 
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical"
-    android:layout_margin="1dp"
-    android:background="@android:color/transparent"
-    android:orientation="vertical"
-    android:weightSum="10">
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true">
 
-    <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight="2"
-    android:background="@android:color/transparent"
-    android:src="@drawable/www_click_logo"
-        android:tint="@color/white1"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:weightSum="10">
 
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="8"
-    android:fontFamily="@font/headland_one"
-    android:text="Visit Us"
-    android:textAlignment="center"
-    android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
-    android:textStyle="bold|italic" />
+                    <ImageView
+                        android:id="@+id/visitButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/www_click_logo"
+                        android:tint="@color/white1" />
 
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:fontFamily="@font/headland_one"
+                        android:text="Visit Us"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+                        android:textStyle="bold|italic" />
 
-    </RelativeLayout>
+                </LinearLayout>
 
-    <!-- Column 2 -->
-    <RelativeLayout
-    android:id="@+id/AboutButton"
-    android:layout_width="0dp"
-    android:layout_height="4dp"
-    android:layout_rowWeight="1"
-    android:layout_columnWeight="1"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginBottom="16dp"
-    android:background="@android:color/transparent"
-    android:clickable="true"
-    android:focusable="true"
+            </RelativeLayout>
 
-    >
+            <!-- Column 2 -->
+            <RelativeLayout
 
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical"
-    android:layout_margin="1dp"
-    android:background="@android:color/transparent"
-    android:orientation="vertical"
-    android:weightSum="10">
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
 
-    <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight="2"
-    android:src="@drawable/about_group_blue"
-        android:tint="@color/white1"
-        android:elevation="@dimen/dimen_20dp"/>
+                >
 
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="8"
-    android:fontFamily="@font/headland_one"
-    android:text="About"
-    android:textAlignment="center"
-    android:textSize="14sp"
-    android:textStyle="bold|italic" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="1dp"
 
-    </LinearLayout>
+                    android:orientation="vertical"
+                    android:weightSum="10">
 
-    </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/AboutButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="2"
+                        android:src="@drawable/about_group_blue"
+                        android:tint="@color/white1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:fontFamily="@font/headland_one"
+                        android:text="About"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold|italic" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
 
-    </GridLayout>
+        </GridLayout>
 
 
     </LinearLayout>

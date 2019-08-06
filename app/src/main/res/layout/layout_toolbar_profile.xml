@@ -27,7 +27,7 @@
                 android:layout_width="@dimen/toolbar_profile_width"
                 android:layout_height="@dimen/toolbar_profile_width"
                 android:scaleType="centerInside"
-                android:src="@drawable/cityshilouette"
+                android:src="@drawable/ic_avatar"
                 app:civ_border_color="@color/LightSlateGray"
                 app:civ_border_width="2dp"
                 app:civ_shadow="true"

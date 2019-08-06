@@ -444,7 +444,7 @@ public class Auth_MainActivity extends AppCompatActivity {
         if (session.getisAdminEmail()==true){
            // CT.success(getApplicationContext(),session.getEamil()+"\n"+session.getName());
 //            Toast.makeText(getApplicationContext(),,Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this,Teachers_Panel.class));
+            startActivity(new Intent(this,GeneralUser_Profile.class));
             finish();
 
         }if(session.getisAdminEmail()==false) {

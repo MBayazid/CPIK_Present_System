@@ -81,13 +81,10 @@ private CommonFunctions commonFunctions;
             headerName.setText(session.getName());
             commonFunctions.ImageGlider(getApplicationContext(),session.getImageURL(),headerPhoto);
             if (session.getisAdminEmail()==true){
-
-
-
-            }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new TeachersFragment()).commit();
+            }else {getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new StudentsFragment()).commit();}
         } else if(!session.getPhoneNumbern().equals(null)){
 //            headerPhoneNumber.setVisibility(View.VISIBLE);
-
             headerPhoneNumber.setText(session.getPhoneNumbern());
 
         }
@@ -159,21 +156,8 @@ private CommonFunctions commonFunctions;
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        if (session.getisAdminEmail()==true){
 
-
-
-        }
-        if (item == null){
-
-        }
-
-        if (id == R.id.nav_students) {
-            // Handle the camera action
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new StudentsFragment()).commit();
-        } else if (id == R.id.nav_teachers) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new TeachersFragment()).commit();
-        }  else if (id == R.id.nav_prfile) {
+         if (id == R.id.nav_prfile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new ProfileFragment()).commit();
         } else if (id == R.id.nav_visit) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new WebViewFragment()).commit();

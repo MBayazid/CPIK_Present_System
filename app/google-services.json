@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "1014227438312",
+    "firebase_url": "https://cpikpresentsystem.firebaseio.com",
+    "project_id": "cpikpresentsystem",
+    "storage_bucket": "cpikpresentsystem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014227438312:android:6a7b3b13c2971d27",
+        "android_client_info": {
+          "package_name": "com.bayazid.cpik_present_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014227438312-17lbsiu0o6ib5d1aj69k7om5vhqas1kb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bayazid.cpik_present_system",
+            "certificate_hash": "891e843b271b88ca64f2fdf6c3f3d386d7c69f68"
+          }
+        },
+        {
+          "client_id": "1014227438312-rjhm09vpqen34mk3cjj0rjeebjpfvjfp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bayazid.cpik_present_system",
+            "certificate_hash": "bc7501252c57a427810579ef593ec9c0592adf40"
+          }
+        },
+        {
+          "client_id": "1014227438312-h43md0vo108p2p489o0p7ajq7ln2okl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaC09gJDIeKqOY4lkWvydcHp6QzPbiclA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014227438312-h43md0vo108p2p489o0p7ajq7ln2okl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

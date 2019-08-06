@@ -11,7 +11,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/cpik_dark_blue_color"
+
         android:theme="@style/AppTheme.AppBarOverlay"
         android:visibility="visible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -24,10 +24,6 @@
             android:visibility="visible"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             android:elevation="@dimen/dimen_20dp">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/cpik_banar_logo" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

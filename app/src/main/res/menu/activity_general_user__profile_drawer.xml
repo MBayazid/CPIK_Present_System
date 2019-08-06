@@ -11,21 +11,9 @@
             android:icon="@drawable/ic_person_black_24dp"
             android:title="@string/menu_profile" />
         <item
-
-            android:id="@+id/nav_students"
-            android:icon="@drawable/icon_education_hat"
-            android:title="@string/menu_students" />
-        <item
-
-            android:iconTintMode="src_atop"
-            android:id="@+id/nav_teachers"
-            android:icon="@drawable/staff_icon"
-            android:title="@string/menu_teacher" />
-
-
-        <item
             android:id="@+id/nav_visit"
             android:icon="@drawable/cpik_logo_main"
+            android:titleCondensed="@string/app_name"
             android:title="@string/menu_visit_cpik_web" />
 
     </group>
