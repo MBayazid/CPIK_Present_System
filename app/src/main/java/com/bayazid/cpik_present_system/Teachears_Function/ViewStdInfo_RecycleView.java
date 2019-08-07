@@ -147,8 +147,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         if (intentData == true) {
             //get Technology Name
             getTechnologyName();
-            //Creat Teachers Attendance Room
-            createTeachersRoom();
+
         } else if (intentData == false) {
             startActivity(new Intent(getApplicationContext(), Teacher_Class_type.class));
             ViewStdInfo_RecycleView.this.finish();
@@ -171,7 +170,8 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(ViewStdInfo_RecycleView.this, "Your Class is Online.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ViewStdInfo_RecycleView.this, "Your Class is Added.", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -390,6 +390,22 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
 
         Button Yes = dialogView.findViewById(R.id.buttonOk);
         Button No = dialogView.findViewById(R.id.buttonNo);
+        Button Edit_Class=dialogView.findViewById(R.id.edit_class);
+
+        TextView Date_class=dialogView.findViewById(R.id.tollbar_date);
+        TextView Technilogy=dialogView.findViewById(R.id.tollbar_techonology);
+        TextView Semester_Class=dialogView.findViewById(R.id.tollbar_semester);
+        TextView Subject=dialogView.findViewById(R.id.tollbar_subcode);
+        TextView Total=dialogView.findViewById(R.id.tollbar_total);
+//        if (!Department.isEmpty()&& !TechnologyName.isEmpty()&& !Semester.isEmpty() && !SubjectCode.isEmpty() && !Date.isEmpty()&& session.getTotalStudents()>=1)
+//        {
+//            Date_class.setText(Date);
+//            Technilogy.setText(Department);
+//            Semester_Class.setText(Semester);
+//            Subject.setText(SubjectCode);
+//            Total.setText(session.getTotalStudents());
+       // }
+
         //Now we need an AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //setting the view of the builder to our custom view that we already inflated
@@ -402,7 +418,9 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         Yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Total", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getApplicationContext(), "Total", Toast.LENGTH_SHORT).show();
+                //Creat Teachers Attendance Room
+                createTeachersRoom();
                 alertDialog.setCancelable(true);
                 alertDialog.cancel();
               //  onBackPressed(true);
@@ -412,14 +430,22 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         No.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Total", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Class Removed", Toast.LENGTH_SHORT).show();
                 alertDialog.setCancelable(true);
                 alertDialog.cancel();
-                ViewStdInfo_RecycleView.this.finish();
+               finish();
               //  onBackPressed();
 
 
 
+            }
+        });
+        Edit_Class.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Edit Class", Toast.LENGTH_SHORT).show();
+                alertDialog.setCancelable(true);
+                alertDialog.cancel();
             }
         });
         alertDialog.show();
