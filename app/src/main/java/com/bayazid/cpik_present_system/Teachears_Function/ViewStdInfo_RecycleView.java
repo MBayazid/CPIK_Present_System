@@ -27,24 +27,21 @@ import com.bayazid.cpik_present_system.Scan_Cpik_Server.Get_Student_Group_JSON;
 import com.bayazid.cpik_present_system.Std_UI.STD_Recycler_Adapter;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Std_Data_set;
 import com.bayazid.librarycpik.Recycler_Function.RecyclerTouchListener;
-import com.bayazid.librarycpik.TerminalAnimation.SplashScreen;
 import com.bayazid.librarycpik.ToggleSwitchView.SwitchButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.zxing.oned.Code93Reader;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +61,10 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     private Session session;
 
     private TextView ViewTotalStudents;
+    // Write a message to the database
+//    FirebaseDatabase database;
+//    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -408,8 +409,9 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
             Subject.setText(SubjectCode);
             Total.setText(": " + session.getTotalStudents());
             // Toast.makeText(getApplicationContext(), "Total"+session.getTotalStudents(), Toast.LENGTH_SHORT).show();
+        } else {
+            finish();
         }
-        else {finish();}
 
         //Now we need an AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -425,9 +427,12 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
             public void onClick(View view) {
                 //  Toast.makeText(getApplicationContext(), "Total", Toast.LENGTH_SHORT).show();
                 //Creat Teachers Attendance Room
+
+              // Read from the database
                 createTeachersRoom();
                 alertDialog.setCancelable(true);
                 alertDialog.cancel();
+//
                 //  onBackPressed(true);
 
             }
