@@ -73,7 +73,7 @@ public class CT {
                 .borderCol(Color.BLACK)
                 .borderWidth(10)
                 .textCol(Color.WHITE)
-                .image(R.drawable.staff_icon)
+                .image(R.drawable.ic_done_all_black_24dp)
                 .radius(50, 50, 50, 50)
                 .show();
     }
@@ -85,7 +85,7 @@ public class CT {
                 .borderCol(Color.BLACK)
                 .borderWidth(10)
                 .textCol(Color.BLACK)
-                .image(R.drawable.success2)
+                .image(R.drawable.ic_done_all_black_24dp)
                 .radius(50, 50, 50, 50)
                 .show();
     }
@@ -122,7 +122,7 @@ public class CT {
                 .borderCol(Color.BLACK)
                 .borderWidth(10)
                 .textCol(Color.WHITE)
-                .image(R.drawable.loading)
+                .image(R.drawable.ic_refresh_black)
                 .radius(50, 50, 50, 50)
                 .show();
     }
@@ -134,7 +134,7 @@ public class CT {
                 .borderCol(Color.BLACK)
                 .borderWidth(10)
                 .textCol(Color.BLACK)
-                .image(R.drawable.loading)
+                .image(R.drawable.ic_refresh_black)
                 .radius(50, 50, 50, 50)
                 .show();
     }

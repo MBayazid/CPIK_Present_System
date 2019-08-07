@@ -26,7 +26,8 @@
     <string name="btn_logout_from_google">Logout from Google</string>
     <string name="btn_revoke_access">Revoke Access</string>
     <string name="loading">Loading...</string>
-    <string name="Student_Type">Select Date/Cuirrent date by defult. Students Department and Semester To Start Your Class</string>
+    <string name="Student_Type">You Have Added </string>
+    <string name="Student_Type1">students in total, if u want keep this class record then press YES , To Delete this Record Press NO </string>
     <string name="title_activity_teachers__profile__panel">Teacher Panel</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_teachers__panel">Teachers Panel</string>

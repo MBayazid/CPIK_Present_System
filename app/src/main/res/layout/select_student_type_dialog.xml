@@ -1,52 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/nav_drawer_blue_theam_color"
     android:orientation="vertical">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/colorPrimary">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/ic_success_dialog" />
-
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:background="#633F51B5"
+        android:elevation="@dimen/dimen_5dp"
+        android:gravity="center">
 
         <TextView
-            android:layout_width="match_parent"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Success"
+            android:drawableEnd="@drawable/failed"
+
+            android:text="Attention "
             android:textAlignment="center"
+            android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_10dp">
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/Student_Type"
+
+            android:text="@string/Student_Type1"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <Button
-            android:id="@+id/buttonOk"
-            android:layout_width="200dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/theme_button"
-            android:text="Ok"
-            android:textColor="@color/White" />
+            android:orientation="horizontal"
+
+            android:layout_margin="@dimen/dimen_5dp"
+            android:gravity="center">
+
+            <Button
+                android:padding="@dimen/dimen_5dp"
+                android:id="@+id/buttonNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTint="@color/orange1"
+                android:drawableStart="@drawable/ic_delete_forever_black_24dp"
+
+
+
+                android:background="@drawable/dialog_button_background_drawable"
+                android:text="Trash"
+                android:textAllCaps="false"
+                android:textColor="@color/White" />
+
+            <Button
+                android:padding="@dimen/dimen_5dp"
+                android:drawableTint="@color/blue1"
+                android:drawableEnd="@drawable/ic_note_add_black_24dp"
+                android:layout_marginLeft="@dimen/dimen_50dp"
+                android:id="@+id/buttonOk"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dialog_button_background_drawable"
+
+                android:gravity="center"
+                android:text="Keep"
+
+                android:textAllCaps="false"
+                android:textColor="@color/White" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

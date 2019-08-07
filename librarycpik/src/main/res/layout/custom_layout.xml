@@ -14,7 +14,7 @@
         android:layout_marginRight="5dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/success" />
+        android:src="@drawable/ic_done_all_black_24dp" />
 
     <TextView
         android:id="@+id/cltv"

@@ -74,6 +74,7 @@
             android:name=".Students_List"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
+            android:parentActivityName=".Auth_Profile.GeneralUser_Profile"
             android:name=".Teachears_Function.Teacher_Class_type"
             android:theme="@style/AppThemeNoActionBar" />
 

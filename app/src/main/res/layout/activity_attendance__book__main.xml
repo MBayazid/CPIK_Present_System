@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Teachears_Function.Attendance_Book_Main"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:background="@color/cpik_dark_blue_color"
+    android:background="@color/nav_drawer_blue_theam_color"
     >
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -15,7 +15,7 @@
         android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="@color/cpik_dark_blue_color">
+        android:background="@color/colorPrimary">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"

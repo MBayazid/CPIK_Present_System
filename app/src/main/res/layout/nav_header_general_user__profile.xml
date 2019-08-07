@@ -51,12 +51,14 @@
 
         <TextView
             android:id="@+id/header_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left|bottom"
             android:textColor="@color/white1"
             android:textStyle="bold"
+            android:textSize="@dimen/dimen_20dp"
+            android:text="Name"
            />
 
         <TextView
@@ -66,7 +68,10 @@
             android:layout_weight="1"
             android:gravity="top"
             android:textColor="@color/white1"
-            android:textStyle="bold"
+            android:textStyle="italic"
+            android:text="Email"
+            android:textSize="@dimen/dimen_10dp"
+
             />
         <TextView
             android:id="@+id/header_Mobile"
@@ -76,7 +81,9 @@
             android:gravity="center"
             android:textColor="@color/white1"
             android:textStyle="bold"
-            android:textSize="@dimen/dimen_10dp"
+            android:textSize="@dimen/dimen_15dp"
+            android:text="phone Number"
+
 
             />
     </LinearLayout>
@@ -88,19 +95,20 @@
         android:background="@drawable/ic_rectangle_550"
         android:gravity="end|center"
         android:orientation="horizontal"
-        android:paddingTop="@dimen/dimen_25dp">
+        android:paddingTop="@dimen/dimen_25dp"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="31dp"
             android:layout_height="31dp"
-            android:background="@drawable/ic_add_white_24dp"
+            android:background="@drawable/ic_fab_star"
             android:backgroundTint="@color/nav_drawer_blue_theam_color"
             android:scaleType="fitXY" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Info"
+            android:text=""
             android:textColor="@color/white1"
             android:textStyle="bold" />
 

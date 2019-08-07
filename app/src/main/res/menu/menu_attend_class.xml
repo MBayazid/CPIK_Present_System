@@ -6,7 +6,7 @@
         app:showAsAction="never|ifRoom"
         android:id="@+id/action_by_rescan"
         android:title="Rescan Students List"
-        android:icon="@drawable/ic_refresh_black_24dp"
+        android:icon="@drawable/ic_refresh_black"
         />
     <item
         android:id="@+id/action_by_roll"

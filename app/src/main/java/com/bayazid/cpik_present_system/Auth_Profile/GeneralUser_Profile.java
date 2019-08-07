@@ -49,6 +49,8 @@ private CommonFunctions commonFunctions;
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //setTitle(" ");
+
         session=new Session(this);
         //call CommonFunctions Class
         commonFunctions=new CommonFunctions();
@@ -58,25 +60,34 @@ private CommonFunctions commonFunctions;
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
+        View headerView = navigationView.getHeaderView(0);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        setTitle(" ");
 
-
-
-
-        View headerView = navigationView.getHeaderView(0);
 
         headerEmail=(TextView)headerView.findViewById(R.id.header_email);
         headerName= (TextView) headerView.findViewById(R.id.header_name);
         headerPhoneNumber= (TextView) headerView.findViewById(R.id.header_Mobile);
         headerPhoto=(CircularImageView) headerView.findViewById(R.id.header_image);
+        //Gone ByDefult
+        headerEmail.setVisibility(View.GONE);
+        headerName.setVisibility(View.GONE);
+        headerPhoto.setVisibility(View.GONE);
+        headerPhoneNumber.setVisibility(View.GONE);
+
 
         if (!session.getEamil().equals(null)){
-            headerPhoneNumber.setVisibility(View.GONE);
+            //Email is visible for now
+            headerEmail.setVisibility(View.VISIBLE);
+            //Name and Photo is Visible
+            headerName.setVisibility(View.VISIBLE);
+
+            headerPhoto.setVisibility(View.VISIBLE);
+
             headerEmail.setText(session.getEamil());
             headerName.setText(session.getName());
             commonFunctions.ImageGlider(getApplicationContext(),session.getImageURL(),headerPhoto);
@@ -84,7 +95,7 @@ private CommonFunctions commonFunctions;
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new TeachersFragment()).commit();
             }else {getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new StudentsFragment()).commit();}
         } else if(!session.getPhoneNumbern().equals(null)){
-//            headerPhoneNumber.setVisibility(View.VISIBLE);
+            headerPhoneNumber.setVisibility(View.VISIBLE);
             headerPhoneNumber.setText(session.getPhoneNumbern());
 
         }

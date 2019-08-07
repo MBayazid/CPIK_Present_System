@@ -190,9 +190,7 @@
                              android:drawableEnd="@drawable/ic_assignment_black_24dp"
                              android:fontFamily="@font/fonts"
                              android:padding="@dimen/dimen_10dp"
-                             android:text="Begin Class "
-                             android:drawableTint="@color/white1"
-                             android:drawableTintMode="add"/>
+                             android:text="Begin Class " />
                           <Button
                               android:textAllCaps="false"
                              android:id="@+id/button_get_report"
