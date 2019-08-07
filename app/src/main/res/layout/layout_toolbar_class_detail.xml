@@ -14,11 +14,11 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center|top">
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="54dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:src="@drawable/cpik_logo_main" />
         </LinearLayout>
 
@@ -30,6 +30,32 @@
             android:layout_marginStart="@dimen/dimen_10dp"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:layout_marginBottom="3dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2FF5EFEB">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white1"
+
+                    android:text="Date : "
+                    android:textSize="16sp"
+                    android:fontFamily="@font/agency"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="##/##/##"
+                    android:textStyle="italic|bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/white1"
+                    android:id="@+id/tollbar_date" />
+
+            </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -115,32 +141,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#2FF5EFEB">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/white1"
 
-                    android:text="Date : "
-                    android:textSize="16sp"
-                    android:fontFamily="@font/agency"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="##/##/##"
-                    android:textStyle="italic|bold"
-                    android:textSize="16sp"
-                    android:textColor="@color/white1"
-                    android:id="@+id/tollbar_date" />
-
-            </LinearLayout>
 
 
 

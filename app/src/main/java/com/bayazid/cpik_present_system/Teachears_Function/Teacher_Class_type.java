@@ -40,6 +40,9 @@ public class Teacher_Class_type extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+       // overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+
         setContentView(R.layout.activity_teacher__class_type);
         //initialize components
         GetQueryReport=findViewById(R.id.button_get_report);

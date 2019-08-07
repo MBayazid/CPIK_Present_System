@@ -40,6 +40,7 @@ private MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
         setContentView(R.layout.activity_attendance__book__main);
 
 //        mUser=mAuth.getCurrentUser();
