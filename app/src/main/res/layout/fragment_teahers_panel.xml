@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue1">
@@ -19,24 +18,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+<com.bayazid.librarycpik.RippleEffect.RippleView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/r1"
+    android:requiresFadingEdge="horizontal">
+    <Button
+        android:id="@+id/take_attendance_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/theme_button"
+        android:drawableEnd="@drawable/ic_peole_group"
+        android:fontFamily="@font/vrindab"
+        android:padding="10dp"
+        android:text="@string/take_attendance"
 
-        <Button
-            android:id="@+id/take_attendance_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/theme_button"
-            android:drawableEnd="@drawable/ic_peole_group"
-            android:fontFamily="@font/vrindab"
-            android:padding="10dp"
-            android:text="Take Attendance"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        android:textSize="@dimen/dimen_20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            android:textAllCaps="false"
-            android:textColor="@color/White"
-            android:textSize="@dimen/dimen_20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+</com.bayazid.librarycpik.RippleEffect.RippleView>
+
 
         <Button
             android:id="@+id/view_attendance_book_button3"
@@ -47,7 +54,7 @@
             android:fontFamily="@font/vrindab"
             android:padding="10dp"
 
-            android:text="View Scheduled Attendance Date"
+            android:text="View Attendance Date"
             android:textAllCaps="false"
             android:textColor="@color/White"
             android:textSize="@dimen/dimen_20dp"

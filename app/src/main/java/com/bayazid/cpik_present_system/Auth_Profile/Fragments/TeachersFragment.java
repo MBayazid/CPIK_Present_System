@@ -14,9 +14,11 @@ import android.widget.Toast;
 import com.bayazid.cpik_present_system.R;
 import com.bayazid.cpik_present_system.Teachears_Function.Attendance_Book_Main;
 import com.bayazid.cpik_present_system.Teachears_Function.Teacher_Class_type;
+import com.bayazid.librarycpik.RippleEffect.RippleView;
 
 public class TeachersFragment extends Fragment {
     private Button SignOut, View_Schduled_Attendance_Date,Take_Attendance,View_Attendance_Book, EditAttendance,Single_STD_Qurey;
+    private RippleView rippleView1;
     private View view;
 
     @Nullable
@@ -30,6 +32,14 @@ public class TeachersFragment extends Fragment {
         EditAttendance = view.findViewById(R.id.edit_already_taken_btn);
         Single_STD_Qurey = view.findViewById(R.id.single_std_query__button4);
 
+        rippleView1=view.findViewById(R.id.r1);
+        rippleView1.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                startActivity(new Intent(getContext(), Teacher_Class_type.class));
+            }
+        });
+
         SignOut = view.findViewById(R.id.sign_out_button5);
         SignOut.setVisibility(View.GONE);
 
@@ -37,7 +47,7 @@ public class TeachersFragment extends Fragment {
                 Take_Attendance.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(getContext(), Teacher_Class_type.class));
+
                        // Toast.makeText(getContext(),"hii",Toast.LENGTH_SHORT).show();
                     }
                 });
