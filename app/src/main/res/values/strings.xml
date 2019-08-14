@@ -50,7 +50,10 @@
     <string name="attendance"> </string>
     <string name="menu_students">Student Panel</string>
     <string name="menu_teacher">Teachers Panel</string>
-    <string name="menu_visit_cpik_web">CPIK Web Page</string>
+    <string name="menu_visit_cpik_web">Visit Us</string>
     <string name="menu_profile">Profile</string>
     <string name="take_attendance">Enter Class Room</string>
+    <string name="menu_exit">Exit</string>
+
+
 </resources>

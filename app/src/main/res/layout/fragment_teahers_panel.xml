@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue1">
+    android:background="@drawable/grey_border_top">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,115 +19,177 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-<com.bayazid.librarycpik.RippleEffect.RippleView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/r1"
-    android:requiresFadingEdge="horizontal">
-    <Button
-        android:id="@+id/take_attendance_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/theme_button"
-        android:drawableEnd="@drawable/ic_peole_group"
-        android:fontFamily="@font/vrindab"
-        android:padding="10dp"
-        android:text="@string/take_attendance"
 
-        android:textAllCaps="false"
-        android:textColor="@color/White"
-        android:textSize="@dimen/dimen_20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.bayazid.librarycpik.RippleEffect.RippleView
+            android:id="@+id/rtake_attendance_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
 
 
-</com.bayazid.librarycpik.RippleEffect.RippleView>
+            app:rv_color="@color/LawnGreen"
+            app:rv_type="doubleRipple"
+            app:rv_zoom="true">
+
+            <Button
+                android:id="@+id/take_attendance_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/outline_field"
+                android:drawableEnd="@drawable/ic_peole_group"
+                android:fontFamily="@font/vrindab"
+                android:padding="10dp"
+                android:text="@string/take_attendance"
+
+                android:textAllCaps="false"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/dimen_20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        <Button
-            android:id="@+id/view_attendance_book_button3"
+        </com.bayazid.librarycpik.RippleEffect.RippleView>
+
+        <com.bayazid.librarycpik.RippleEffect.RippleView
+            android:id="@+id/rview_attendance_book_button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/theme_button"
-            android:fontFamily="@font/vrindab"
-            android:padding="10dp"
 
-            android:text="View Attendance Date"
-            android:textAllCaps="false"
-            android:textColor="@color/White"
-            android:textSize="@dimen/dimen_20dp"
-            app:layout_constraintEnd_toEndOf="@+id/take_attendance_button"
-            app:layout_constraintHorizontal_bias="0.461" />
+            app:rv_color="@color/Indigo"
+            app:rv_type="doubleRipple"
+            app:rv_zoom="true">
 
-        <Button
-            android:id="@+id/edit_already_taken_btn"
+            <Button
+                android:id="@+id/view_attendance_book_button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/outline_field"
+                android:fontFamily="@font/vrindab"
+                android:padding="10dp"
 
+                android:text="View Attendance Date"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/dimen_20dp"
+                app:layout_constraintEnd_toEndOf="@+id/take_attendance_button"
+                app:layout_constraintHorizontal_bias="0.461" />
+        </com.bayazid.librarycpik.RippleEffect.RippleView>
+
+        <com.bayazid.librarycpik.RippleEffect.RippleView
+            android:id="@+id/redit_already_taken_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/theme_button"
-            android:fontFamily="@font/vrindab"
 
-            android:padding="10dp"
-            android:text="Edit Already Taken Attendance"
-            android:textAllCaps="false"
-            android:textColor="@color/White"
-            android:textSize="@dimen/dimen_20dp" />
+            app:rv_color="@color/ForestGreen"
+            app:rv_type="doubleRipple"
+            app:rv_zoom="true">
 
-        <Button
+            <Button
+                android:id="@+id/edit_already_taken_btn"
 
-            android:id="@+id/view_scheduled_attendance_book_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/outline_field"
+                android:fontFamily="@font/vrindab"
+
+                android:padding="10dp"
+                android:text="Edit Already Taken Attendance"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/dimen_20dp" />
+        </com.bayazid.librarycpik.RippleEffect.RippleView>
+
+        <com.bayazid.librarycpik.RippleEffect.RippleView
+            android:id="@+id/rview_scheduled_attendance_book_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/theme_button"
-            android:fontFamily="@font/vrindab"
-            android:padding="10dp"
-            android:text="View Attendance Book"
-            android:textAllCaps="false"
-            android:textColor="@color/White"
+
+            app:rv_color="@color/DeepSkyBlue"
+            app:rv_type="doubleRipple"
+            app:rv_zoom="true">
+
+            <Button
+
+                android:id="@+id/view_scheduled_attendance_book_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/outline_field"
+                android:fontFamily="@font/vrindab"
+                android:padding="10dp"
+                android:text="View Attendance Book"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text_color"
 
 
-            android:textSize="@dimen/dimen_20dp"
+                android:textSize="@dimen/dimen_20dp"
 
-            />
+                />
+        </com.bayazid.librarycpik.RippleEffect.RippleView>
+        <com.bayazid.librarycpik.RippleEffect.RippleView
+            android:id="@+id/rsingle_std_query__button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
 
+            app:rv_color="@color/DarkSlateBlue"
+            app:rv_type="doubleRipple"
+            app:rv_zoom="true">
         <Button
             android:id="@+id/single_std_query__button4"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/theme_button"
+
+            android:background="@drawable/outline_field"
             android:fontFamily="@font/vrindab"
             android:padding="10dp"
             android:text="Get Single Student Query Report"
             android:textAllCaps="false"
-            android:textColor="@color/White"
+            android:textColor="@color/button_text_color"
 
             android:textSize="@dimen/dimen_20dp"
 
             />
+        </com.bayazid.librarycpik.RippleEffect.RippleView>
 
-        <Button
-            android:id="@+id/sign_out_button5"
+        <com.bayazid.librarycpik.RippleEffect.RippleView
+            android:id="@+id/rsign_out_button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/theme_button"
-            android:fontFamily="@font/bubblegum_sans"
-            android:padding="10dp"
-            android:text="Sign Out"
-            android:textAllCaps="false"
-            android:textColor="@color/White"
+            android:layout_marginBottom="@dimen/dimen_5dp"
+            android:requiresFadingEdge="horizontal"
 
-            android:textSize="@dimen/dimen_20dp"
+            app:rv_color="@color/white1"
+            app:rv_type="doubleRipple"
+            app:rv_zoom="true">
 
-            />
+            <Button
+                android:id="@+id/sign_out_button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                android:background="@drawable/theme_button"
+                android:fontFamily="@font/bubblegum_sans"
+                android:padding="10dp"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="@color/White"
+
+                android:textSize="@dimen/dimen_20dp"
+
+                />
+        </com.bayazid.librarycpik.RippleEffect.RippleView>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -31,9 +31,13 @@
             </intent-filter>
 
         </activity>
+
         <activity
             android:theme="@style/AppTheme.NoActionBar"
-            android:name=".Auth_Profile.Auth_MainActivity"/>
+            android:name=".Auth_Profile.Auth_MainActivity">
+
+
+        </activity>
         <activity
             android:name=".Auth_Profile.GeneralUser_Profile"
             android:label="@string/title_activity_general_user__profile"

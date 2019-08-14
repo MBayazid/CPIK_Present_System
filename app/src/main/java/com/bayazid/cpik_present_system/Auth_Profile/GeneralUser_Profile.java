@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,8 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.widget.FrameLayout;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +26,6 @@ import com.bayazid.cpik_present_system.Auth_Profile.Fragments.WebViewFragment;
 import com.bayazid.cpik_present_system.CommonFunctions;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
-import com.bayazid.cpik_present_system.Students_List;
-import com.bayazid.librarycpik.TerminalAnimation.SplashScreen;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,11 +33,13 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 
 public class GeneralUser_Profile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-private Session session;
-private TextView headerName,headerPhoneNumber;
-private TextView headerEmail;
-private CircularImageView headerPhoto;
-private CommonFunctions commonFunctions;
+    private Session session;
+    private TextView headerName, headerPhoneNumber;
+    private TextView headerEmail;
+    private CircularImageView headerPhoto;
+    private CommonFunctions commonFunctions;
+    private View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +49,9 @@ private CommonFunctions commonFunctions;
 
         //setTitle(" ");
 
-        session=new Session(this);
+        session = new Session(this);
         //call CommonFunctions Class
-        commonFunctions=new CommonFunctions();
-
+        commonFunctions = new CommonFunctions();
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -69,10 +66,10 @@ private CommonFunctions commonFunctions;
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        headerEmail=(TextView)headerView.findViewById(R.id.header_email);
-        headerName= (TextView) headerView.findViewById(R.id.header_name);
-        headerPhoneNumber= (TextView) headerView.findViewById(R.id.header_Mobile);
-        headerPhoto=(CircularImageView) headerView.findViewById(R.id.header_image);
+        headerEmail = (TextView) headerView.findViewById(R.id.header_email);
+        headerName = (TextView) headerView.findViewById(R.id.header_name);
+        headerPhoneNumber = (TextView) headerView.findViewById(R.id.header_Mobile);
+        headerPhoto = (CircularImageView) headerView.findViewById(R.id.header_image);
         //Gone ByDefult
         headerEmail.setVisibility(View.GONE);
         headerName.setVisibility(View.GONE);
@@ -80,7 +77,7 @@ private CommonFunctions commonFunctions;
         headerPhoneNumber.setVisibility(View.GONE);
 
 
-        if (!session.getEamil().equals(null)){
+        if (session.getEamil() != null) {
             //Email is visible for now
             headerEmail.setVisibility(View.VISIBLE);
             //Name and Photo is Visible
@@ -90,19 +87,19 @@ private CommonFunctions commonFunctions;
 
             headerEmail.setText(session.getEamil());
             headerName.setText(session.getName());
-            commonFunctions.ImageGlider(getApplicationContext(),session.getImageURL(),headerPhoto);
-            if (session.getisAdminEmail()==true){
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new TeachersFragment()).commit();
-            }else {getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new StudentsFragment()).commit();}
-        } else if(!session.getPhoneNumbern().equals(null)){
+            commonFunctions.ImageGlider(getApplicationContext(), session.getImageURL(), headerPhoto);
+            if (session.getisAdminEmail()) {
+                setTitle("Home");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host, new TeachersFragment()).commit();
+            } else {
+                setTitle("Home");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host, new StudentsFragment()).commit();
+            }
+        } else if (session.getPhoneNumbern() != null) {
             headerPhoneNumber.setVisibility(View.VISIBLE);
             headerPhoneNumber.setText(session.getPhoneNumbern());
 
         }
-        else {
-
-        }
-
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -164,19 +161,31 @@ private CommonFunctions commonFunctions;
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-         if (id == R.id.nav_prfile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new ProfileFragment()).commit();
+        if (id == R.id.nav_prfile) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host, new ProfileFragment()).commit();
         } else if (id == R.id.nav_visit) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host,new WebViewFragment()).commit();
-        }  else if (id == R.id.nav_sign_out) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host, new WebViewFragment()).commit();
+        } else if (id == R.id.nav_sign_out) {
             signOut();
-        }  else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
+        } else if (id == R.id.nav_exit) {
+            commonFunctions.DialogWarning(this,view,"Exit !","Are You sure");
+
+        } else if (id == R.id.nav_home) {
+            if (session.getisAdminEmail()) {
+                setTitle("Home");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host, new TeachersFragment()).commit();
+            } else {
+                setTitle("Home");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_host, new StudentsFragment()).commit();
+            }
 
         }
 
@@ -184,6 +193,7 @@ private CommonFunctions commonFunctions;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     public void signOut() {
         AuthUI.getInstance()
                 .signOut(this)
@@ -200,8 +210,8 @@ private CommonFunctions commonFunctions;
 
                         session.setPhoneNumber(null);
 
-                        Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(GeneralUser_Profile.this,Auth_MainActivity.class));
+                        Toast.makeText(getApplicationContext(), "Logged Out", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(GeneralUser_Profile.this, Auth_MainActivity.class));
                         finish();
                     }
                 });

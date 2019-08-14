@@ -11,14 +11,16 @@ import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
-import com.bayazid.librarycpik.CustomizedToast.CT;
+
+import com.facebook.AccessToken;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.ActionCodeSettings;
+
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,9 +31,7 @@ import com.google.firebase.auth.UserInfo;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -73,6 +73,7 @@ public class Auth_MainActivity extends AppCompatActivity {
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.PhoneBuilder().build()
                 , new AuthUI.IdpConfig.GoogleBuilder().build()
+                , new AuthUI.IdpConfig.FacebookBuilder().build()
 
         );
         // Create and launch sign-in intent
@@ -228,31 +229,7 @@ public class Auth_MainActivity extends AppCompatActivity {
             });
 
 
-//                    .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                            if (task.isSuccessful()) {
-//                                for (QueryDocumentSnapshot document : task.getResult()) {
-//                                    if (document.getId().equals(email)){
-////                                        progressBar.setVisibility(View.GONE);
-////                                        hideProgressDialog();
-//
-//                                        task.isComplete();
-//
-//                                    }
-//
-//                                }
-//                            }
-//                            else{
-//                                Toast.makeText(getApplicationContext(), "General Activity", Toast.LENGTH_LONG).show();
-//                                //progressBar.setVisibility(View.GONE);
-////                                        hideProgressDialog();
-//                                startActivity(new Intent(Auth_MainActivity.this, GeneralUser_Profile.class));
-//                               // finishAffinity();
-//                            }
-//
-//                        }
-//                    });
+
     }
 
     public void getProviderData() {
@@ -347,12 +324,12 @@ public class Auth_MainActivity extends AppCompatActivity {
         // [END auth_google_cred]
     }
 
-//    public void getFbCredentials() {
-//        AccessToken token = AccessToken.getCurrentAccessToken();
-//        // [START auth_fb_cred]
-//        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-//        // [END auth_fb_cred]
-//    }
+    public void getFbCredentials() {
+        AccessToken token = AccessToken.getCurrentAccessToken();
+        // [START auth_fb_cred]
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        // [END auth_fb_cred]
+    }
 
     public void testPhoneVerify() {
         // [START auth_test_phone_verify]

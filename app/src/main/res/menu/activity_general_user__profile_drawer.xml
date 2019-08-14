@@ -7,9 +7,14 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_home" />
+        <item
             android:id="@+id/nav_prfile"
             android:icon="@drawable/ic_person_black_24dp"
             android:title="@string/menu_profile" />
+
         <item
             android:id="@+id/nav_visit"
             android:icon="@drawable/ic_round_world"
@@ -23,10 +28,7 @@
 
 
 
-        <item
-            android:id="@+id/nav_sign_out"
-            android:icon="@drawable/ic_log_out"
-            android:title="@string/btn_logout_from_account" />
+
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_menu_share"
@@ -35,6 +37,14 @@
             android:id="@+id/nav_send"
             android:icon="@drawable/ic_menu_send"
             android:title="@string/menu_send" />
+        <item
+        android:id="@+id/nav_sign_out"
+        android:icon="@drawable/ic_log_out"
+        android:title="@string/btn_logout_from_account" />
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/icon_exit_and_back"
+            android:title="@string/menu_exit" />
     </group>
 
 </menu>
