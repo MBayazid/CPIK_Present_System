@@ -3,28 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:weightSum="3">
+        android:weightSum="3"
+
+        android:layout_margin="@dimen/dimen_10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:baselineAligned="false"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="2"
-            android:baselineAligned="false">
+            android:layout_margin="@dimen/dimen_10dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -37,8 +36,8 @@
 
                 <ImageView
                     android:id="@+id/studentButton"
-                    android:layout_width="@dimen/dimen_40dp"
-                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_width="92dp"
+                    android:layout_height="87dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:src="@drawable/hat_logo_green"
@@ -66,8 +65,8 @@
 
                 <ImageView
                     android:id="@+id/teacherBitton"
-                    android:layout_width="@dimen/dimen_40dp"
-                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_width="92dp"
+                    android:layout_height="87dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:src="@drawable/teacher_in_a_class"
@@ -93,7 +92,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:layout_margin="@dimen/dimen_10dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -104,8 +104,8 @@
 
                 <ImageView
                     android:id="@+id/support_btn"
-                    android:layout_width="@dimen/dimen_40dp"
-                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_width="92dp"
+                    android:layout_height="87dp"
                     android:layout_gravity="center_horizontal"
 
                     android:background="@android:color/transparent"
@@ -115,7 +115,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="@font/headland_one"
                     android:text="Get Help"
                     android:textAlignment="center"
@@ -133,8 +132,8 @@
 
                 <ImageView
                     android:id="@+id/gardenBtton"
-                    android:layout_width="@dimen/dimen_40dp"
-                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_width="92dp"
+                    android:layout_height="87dp"
                     android:layout_gravity="center_horizontal"
 
                     android:background="@android:color/transparent"
@@ -144,7 +143,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="@font/headland_one"
                     android:text="Gardian's"
                     android:textAlignment="center"
@@ -162,7 +160,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:layout_margin="@dimen/dimen_10dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -172,8 +172,8 @@
 
                 <ImageView
                     android:id="@+id/AboutButton"
-                    android:layout_width="@dimen/dimen_40dp"
-                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_width="92dp"
+                    android:layout_height="87dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/about_group_blue"
                     android:tint="@color/nav_drawer_blue_theam_color" />
@@ -193,13 +193,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/visitButton"
-                    android:layout_width="@dimen/dimen_40dp"
-                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_width="66dp"
+                    android:layout_height="61dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:src="@drawable/icon_hand_cash"
