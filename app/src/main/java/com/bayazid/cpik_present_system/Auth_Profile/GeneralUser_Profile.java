@@ -176,7 +176,12 @@ public class GeneralUser_Profile extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         } else if (id == R.id.nav_exit) {
-            commonFunctions.DialogWarning(this,view,"Exit !","Are You sure");
+
+            if (commonFunctions.getdialogResult()==-1){
+                commonFunctions.setdialogResult(0);
+                this.finish();
+            }else { commonFunctions.DialogWarning(this,"","Are You sure you want to exit?","Yes","No");}
+
 
         } else if (id == R.id.nav_home) {
             if (session.getisAdminEmail()) {
