@@ -8,11 +8,13 @@
 
     <application
         android:name=".Network_Cheaker.MyApplicationController"
+        android:allowBackup="true"
         android:icon="@drawable/cpik_logo_main"
         android:label="@string/app_name"
         android:roundIcon="@drawable/cpik_logo_main"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".SplashScreen_Activity"
@@ -25,17 +27,16 @@
         </activity>
         <activity
             android:name=".Auth_Profile.LoginActivity"
-            android:theme="@style/AppThemeNoActionBar" >
-            <intent-filter >
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:theme="@style/AppThemeNoActionBar">
 
         </activity>
 
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name=".Auth_Profile.Auth_MainActivity">
-
+            android:name=".Auth_Profile.Auth_MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 
         </activity>
         <activity
@@ -47,23 +48,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bayazid.cpik_present_system.Auth_Profile.LoginActivity" />
         </activity>
-        <activity android:name=".Scan_Cpik_Server.Get_Student_Group_JSON"/>
+        <activity android:name=".Scan_Cpik_Server.Get_Student_Group_JSON" />
+
         <activity android:name=".Teachears_Function.Attendance_Book_Child_1" />
         <activity
-            android:theme="@style/AppThemeNoActionBar"
             android:name=".Teachears_Function.Attendance_Book_Main"
-            android:parentActivityName=".Auth_Profile.GeneralUser_Profile"/>
-
-
+            android:parentActivityName=".Auth_Profile.GeneralUser_Profile"
+            android:theme="@style/AppThemeNoActionBar" />
 
         <activity
             android:name=".Auth_Profile.Teachers_Panel"
             android:label="@string/title_activity_teachers__panel"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:parentActivityName=".Teachears_Function.Teacher_Class_type"
             android:name=".Teachears_Function.ViewStdInfo_RecycleView"
             android:label="@string/attendance"
+            android:parentActivityName=".Teachears_Function.Teacher_Class_type"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".Teachears_Function.Post_Students_Attendance"
@@ -79,8 +79,8 @@
             android:name=".Students_List"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
-            android:parentActivityName=".Auth_Profile.GeneralUser_Profile"
             android:name=".Teachears_Function.Teacher_Class_type"
+            android:parentActivityName=".Auth_Profile.GeneralUser_Profile"
             android:theme="@style/AppThemeNoActionBar" />
 
 
@@ -88,9 +88,10 @@
             android:name=".Network_Cheaker.ConnectivityReceiver"
             android:enabled="true">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.com.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>

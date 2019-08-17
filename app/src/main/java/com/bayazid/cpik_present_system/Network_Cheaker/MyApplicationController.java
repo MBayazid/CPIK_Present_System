@@ -24,8 +24,9 @@ public class MyApplicationController extends Application {
         super.onCreate();
 
         mInstance = this;
-        controller=this;
+        controller = this;
     }
+
     public static synchronized MyApplicationController getInstance() {
         return mInstance;
     }
