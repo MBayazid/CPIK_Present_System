@@ -54,6 +54,9 @@
     <string name="menu_profile">Profile</string>
     <string name="take_attendance">Enter Class Room</string>
     <string name="menu_exit">Exit</string>
+    <string name="editalreadytakenattendance">Edit Already Taken Attendance</string>
+    <string name="view_attendance_book">View Attendance Book</string>
+    <string name="get_single_student_query_report">Get Single Student Query Report</string>
 
 
 </resources>

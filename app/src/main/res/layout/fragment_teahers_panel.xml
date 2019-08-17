@@ -24,7 +24,6 @@
             android:id="@+id/rtake_attendance_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_margin="5dp"
             android:layout_marginTop="@dimen/dimen_5dp"
 
@@ -39,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/outline_field"
                 android:drawableEnd="@drawable/ic_peole_group"
-                android:fontFamily="@font/vrindab"
+                android:fontFamily="@font/bubblegum_sans"
                 android:padding="10dp"
                 android:text="@string/take_attendance"
 
@@ -69,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/outline_field"
-                android:fontFamily="@font/vrindab"
+                android:fontFamily="@font/bubblegum_sans"
                 android:padding="10dp"
 
                 android:text="View Attendance Date"
@@ -97,10 +96,10 @@
                 android:layout_height="wrap_content"
 
                 android:background="@drawable/outline_field"
-                android:fontFamily="@font/vrindab"
+                android:fontFamily="@font/bubblegum_sans"
 
                 android:padding="10dp"
-                android:text="Edit Already Taken Attendance"
+                android:text="@string/editalreadytakenattendance"
                 android:textAllCaps="false"
                 android:textColor="@color/button_text_color"
                 android:textSize="@dimen/dimen_20dp" />
@@ -123,9 +122,9 @@
                 android:layout_height="wrap_content"
 
                 android:background="@drawable/outline_field"
-                android:fontFamily="@font/vrindab"
+                android:fontFamily="@font/bubblegum_sans"
                 android:padding="10dp"
-                android:text="View Attendance Book"
+                android:text="@string/view_attendance_book"
                 android:textAllCaps="false"
                 android:textColor="@color/button_text_color"
 
@@ -151,9 +150,9 @@
             android:layout_height="wrap_content"
 
             android:background="@drawable/outline_field"
-            android:fontFamily="@font/vrindab"
+            android:fontFamily="@font/bubblegum_sans"
             android:padding="10dp"
-            android:text="Get Single Student Query Report"
+            android:text="@string/get_single_student_query_report"
             android:textAllCaps="false"
             android:textColor="@color/button_text_color"
 
