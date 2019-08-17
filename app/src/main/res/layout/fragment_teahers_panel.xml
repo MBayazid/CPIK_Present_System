@@ -29,8 +29,8 @@
             android:layout_marginTop="@dimen/dimen_5dp"
 
 
-            app:rv_color="@color/LawnGreen"
-            app:rv_type="doubleRipple"
+            app:rv_color="@color/DeepSkyBlue"
+            app:rv_type="simpleRipple"
             app:rv_zoom="true">
 
             <Button
@@ -60,8 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
 
-            app:rv_color="@color/Indigo"
-            app:rv_type="doubleRipple"
+            app:rv_color="@color/DeepSkyBlue"
+            app:rv_type="simpleRipple"
             app:rv_zoom="true">
 
             <Button
@@ -86,8 +86,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
 
-            app:rv_color="@color/ForestGreen"
-            app:rv_type="doubleRipple"
+            app:rv_color="@color/DeepSkyBlue"
+            app:rv_type="simpleRipple"
             app:rv_zoom="true">
 
             <Button
@@ -113,7 +113,7 @@
             android:layout_marginTop="10dp"
 
             app:rv_color="@color/DeepSkyBlue"
-            app:rv_type="doubleRipple"
+            app:rv_type="simpleRipple"
             app:rv_zoom="true">
 
             <Button
@@ -141,8 +141,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="@dimen/dimen_5dp"
 
-            app:rv_color="@color/DarkSlateBlue"
-            app:rv_type="doubleRipple"
+            app:rv_color="@color/DeepSkyBlue"
+            app:rv_type="simpleRipple"
             app:rv_zoom="true">
         <Button
             android:id="@+id/single_std_query__button4"
