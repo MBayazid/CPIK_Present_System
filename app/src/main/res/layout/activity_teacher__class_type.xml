@@ -153,6 +153,7 @@
                              android:hint="Subject Code"
                              android:textColorHint="@color/colorAccent"
                              android:focusedByDefault="false"
+
                              >
                              <EditText
                                  android:focusedByDefault="false"
@@ -188,9 +189,10 @@
                              android:background="@drawable/theme_button"
                              android:textColor="@color/white1"
                              android:drawableEnd="@drawable/ic_assignment_black_24dp"
-                             android:fontFamily="@font/fonts"
+                             android:fontFamily="@font/vrindab"
+                             android:textSize="@dimen/dimen_20dp"
                              android:padding="@dimen/dimen_10dp"
-                             android:text="Begin Class " />
+                             android:text="@string/begin_class" />
                           <Button
                               android:textAllCaps="false"
                              android:id="@+id/button_get_report"
@@ -201,9 +203,10 @@
                              android:textColor="@color/white1"
                              android:drawableEnd="@drawable/ic_check_green_24dp"
                               android:drawableTint="@color/white1"
-                             android:fontFamily="@font/fonts"
+                              android:fontFamily="@font/vrindab"
+                              android:textSize="@dimen/dimen_20dp"
                              android:padding="@dimen/dimen_10dp"
-                             android:text="Get Class Report " />
+                             android:text="@string/get_class_report" />
 
 
                      </LinearLayout>

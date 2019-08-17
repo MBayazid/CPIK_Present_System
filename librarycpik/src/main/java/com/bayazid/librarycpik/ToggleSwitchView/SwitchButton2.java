@@ -28,9 +28,9 @@ import com.bayazid.librarycpik.R;
 
 
 /**
- * FileName: $ClassName$
- * Author: $username$
- * Time: $date$ $time$
+ * FileName: $CpikApp$
+ * Author: $Bayazid$
+ * Time: $2019$ $nun$
  * Desc: TODO
  */
 public class SwitchButton2  extends CompoundButton {

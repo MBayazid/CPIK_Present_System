@@ -57,6 +57,8 @@
     <string name="editalreadytakenattendance">Edit Already Taken Attendance</string>
     <string name="view_attendance_book">View Attendance Book</string>
     <string name="get_single_student_query_report">Get Single Student Query Report</string>
+    <string name="begin_class">Begin Class</string>
+    <string name="get_class_report">Get Class Report</string>
 
 
 </resources>
