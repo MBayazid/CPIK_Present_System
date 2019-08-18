@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Teachears_Function.ViewStdInfo_RecycleView">
     <item
-        android:orderInCategory="100"
-        app:showAsAction="ifRoom|collapseActionView"
-        android:id="@+id/action_by_rescan"
-        android:title="Rescan Students List"
-        android:icon="@drawable/ic_refresh_black"
-        />
-    <item
         android:id="@+id/search"
         android:icon="@drawable/ic_search"
         android:title="Search"

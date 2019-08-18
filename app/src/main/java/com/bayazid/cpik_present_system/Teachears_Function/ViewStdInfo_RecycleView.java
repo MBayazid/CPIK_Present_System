@@ -61,11 +61,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     private boolean intentData, haveTname;
     private TextView Header_Technology, Header_Semester, Header_Subject, Header_Date;
     private Session session;
-
     private TextView ViewTotalStudents;
-    // Write a message to the database
-//    FirebaseDatabase database;
-//    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
     @Override
@@ -204,28 +200,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-////        if (id == R.id.action_by_roll) {
-////            Toast.makeText(ViewStdInfo_RecycleView.this, "Method 2", Toast.LENGTH_LONG).show();
-////            startActivity(new Intent(ViewStdInfo_RecycleView.this, Post_Students_Attendance.class));
-////            //call Session
-////            return true;
-////        }
-//        if (id == R.id.action_by_rescan) {
-//            Toast.makeText(ViewStdInfo_RecycleView.this, "Reloading Students List PLz WAit", Toast.LENGTH_LONG).show();
-//            Intent i = new Intent(ViewStdInfo_RecycleView.this, Get_Student_Group_JSON.class);
-//            i.putExtra("department", Department);
-//            i.putExtra("TechnologyName", TechnologyName);
-//            i.putExtra("semester", Semester);
-//            startActivity(i);
-//            //call Session
-//            return true;
-//        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -240,12 +215,12 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
                 if (mAdapter != null) mAdapter.getFilter().filter(newText);
                 return true;
             }
         });
     }
+
     //.........................
     //icon_exit_and_back students Attendance function
     private void stdAttendanceDelete(final String deleteRoll) {
@@ -451,7 +426,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                 //  Toast.makeText(getApplicationContext(), "Total", Toast.LENGTH_SHORT).show();
                 //Creat Teachers Attendance Room
 
-              // Read from the database
+                // Read from the database
                 createTeachersRoom();
                 alertDialog.setCancelable(true);
                 alertDialog.cancel();
