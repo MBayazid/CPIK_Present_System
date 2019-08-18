@@ -3,6 +3,7 @@ package com.bayazid.cpik_present_system.Teachears_Function;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
@@ -10,6 +11,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -194,6 +196,9 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_attend_class, menu);
+        MenuItem search = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
+        search(searchView);
         return true;
     }
 
@@ -202,28 +207,46 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_by_roll) {
-            Toast.makeText(ViewStdInfo_RecycleView.this, "Method 2", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(ViewStdInfo_RecycleView.this, Post_Students_Attendance.class));
-            //call Session
-            return true;
-        }
-        if (id == R.id.action_by_rescan) {
-            Toast.makeText(ViewStdInfo_RecycleView.this, "Reloading Students List PLz WAit", Toast.LENGTH_LONG).show();
-            Intent i = new Intent(ViewStdInfo_RecycleView.this, Get_Student_Group_JSON.class);
-            i.putExtra("department", Department);
-            i.putExtra("TechnologyName", TechnologyName);
-            i.putExtra("semester", Semester);
-            startActivity(i);
-            //call Session
-            return true;
-        }
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+////        if (id == R.id.action_by_roll) {
+////            Toast.makeText(ViewStdInfo_RecycleView.this, "Method 2", Toast.LENGTH_LONG).show();
+////            startActivity(new Intent(ViewStdInfo_RecycleView.this, Post_Students_Attendance.class));
+////            //call Session
+////            return true;
+////        }
+//        if (id == R.id.action_by_rescan) {
+//            Toast.makeText(ViewStdInfo_RecycleView.this, "Reloading Students List PLz WAit", Toast.LENGTH_LONG).show();
+//            Intent i = new Intent(ViewStdInfo_RecycleView.this, Get_Student_Group_JSON.class);
+//            i.putExtra("department", Department);
+//            i.putExtra("TechnologyName", TechnologyName);
+//            i.putExtra("semester", Semester);
+//            startActivity(i);
+//            //call Session
+//            return true;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
+    private void search(SearchView searchView) {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                if (mAdapter != null) mAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+    }
+    //.........................
     //icon_exit_and_back students Attendance function
     private void stdAttendanceDelete(final String deleteRoll) {
         //view total attendance

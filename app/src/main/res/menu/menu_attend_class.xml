@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Teachears_Function.ViewStdInfo_RecycleView">
     <item
         android:orderInCategory="100"
-        app:showAsAction="never|ifRoom"
+        app:showAsAction="ifRoom|collapseActionView"
         android:id="@+id/action_by_rescan"
         android:title="Rescan Students List"
         android:icon="@drawable/ic_refresh_black"
         />
     <item
-        android:id="@+id/action_by_roll"
-
-        android:title="Search Roll"
-        app:showAsAction="collapseActionView|always"
+        android:id="@+id/search"
         android:icon="@drawable/ic_search"
-
-
-        />
-
+        android:title="Search"
+        app:showAsAction="always"
+        app:actionViewClass="android.support.v7.widget.SearchView"/>
 </menu>
