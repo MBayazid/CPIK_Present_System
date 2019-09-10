@@ -25,7 +25,6 @@ import android.widget.Toast;
 
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 import com.bayazid.cpik_present_system.R;
-import com.bayazid.cpik_present_system.Scan_Cpik_Server.Get_Student_Group_JSON;
 import com.bayazid.cpik_present_system.Std_UI.STD_Recycler_Adapter;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Std_Data_set;
 import com.bayazid.librarycpik.Recycler_Function.RecyclerTouchListener;
@@ -143,22 +142,24 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
             Semester = bundle.getString("semester");
             SubjectCode = bundle.getString("subCode");
             Date = bundle.getString("date");
-        } else {
+        }
+        else {
             intentData = false;
         }
         if (intentData == true) {
             //get Technology Name
             getTechnologyName();
 
-        } else if (intentData == false) {
+        }
+        else if (intentData == false) {
             startActivity(new Intent(getApplicationContext(), Teacher_Class_type.class));
             ViewStdInfo_RecycleView.this.finish();
         }
     }
 
-    //Creat Room for Teachers / make date visible
-    private void createTeachersRoom() {
 
+    private void createTeachersRoom() {
+//Creat Room for Teachers / make date visible
         final Map<String, Object> Teachers_class = new HashMap<>();
         // Teachers_class.put("TeacherName",session.getName());
         //Teachers_class.put("date", new Timestamp(Date);
@@ -187,9 +188,10 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                 });
     }
 
-    //Create Menu
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //Create Menu
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_attend_class, menu);
         MenuItem search = menu.findItem(R.id.search);
@@ -378,12 +380,12 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        showCustomDialog();
+        showCustomDialogConfirmClass();
         // super.onBackPressed();
 
     }
 
-    private void showCustomDialog() {
+    private void showCustomDialogConfirmClass() {
         //before inflating the custom alert dialog layout, we will get the current activity view group
         ViewGroup viewGroup = findViewById(android.R.id.content);
 
@@ -430,6 +432,7 @@ public class ViewStdInfo_RecycleView extends AppCompatActivity {
                 createTeachersRoom();
                 alertDialog.setCancelable(true);
                 alertDialog.cancel();
+                finish();
 //
                 //  onBackPressed(true);
 

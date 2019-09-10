@@ -27,7 +27,7 @@ public class CommonFunctions {
         //DialogBox.......positive and Negative button
         //Now we need an AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        //setting the view of the builder to our custom view that we already inflated
+        //setting the view of the builder to our custom view that we already inflated'
         //  builder.setView(dialogView);
         builder.setPositiveButton(PositiveButton, new DialogInterface.OnClickListener() {
             @Override
