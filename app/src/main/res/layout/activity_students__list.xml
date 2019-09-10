@@ -1,12 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Students_List"
-    android:gravity="center">
+    android:padding="16dp"
+    tools:context=".Students_List">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,91 +15,95 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:weightSum="2">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="3"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:visibility="gone"
-                    >
-                    <TextView
-                        android:textColor="@color/black_semi_transparent"
-                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Day Before"/>
-                    <TextView
-                        android:textColor="@color/black_semi_transparent"
-                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Today"/>
+                    android:weightSum="3">
 
                     <TextView
-                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-                        android:textColor="@color/black_semi_transparent"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Day After"/>
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:gravity="center"
+                        android:text="Day Before"
+                        android:textColor="@color/black_semi_transparent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:gravity="center"
+                        android:text="Today"
+                        android:textColor="@color/black_semi_transparent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                        android:gravity="center"
+                        android:text="Day After"
+                        android:textColor="@color/black_semi_transparent" />
 
 
                 </LinearLayout>
+
                 <DatePicker
                     android:id="@+id/datePicker1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:datePickerMode="spinner"
-                    android:calendarViewShown="false"
                     android:backgroundTint="@color/Brown"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
 
                     />
-
 
 
             </LinearLayout>
 
 
             <LinearLayout
-                android:layout_marginTop="@dimen/dimen_10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_weight="2"
                 android:gravity="center"
-                android:layout_weight="2">
-                <LinearLayout
-                    android:layout_marginTop="@dimen/dimen_10dp"
+                android:orientation="vertical">
 
+                <LinearLayout
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dimen_10dp"
                     android:gravity="center"
+                    android:orientation="horizontal"
                     android:padding="@dimen/dimen_10dp"
 
                     >
+
                     <TextView
-                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Technology Code : "
                         android:textColor="@color/Black"
-                        android:textStyle="italic"
-                        android:textSize="@dimen/dimen_20dp"/>
+                        android:textSize="@dimen/dimen_20dp"
+                        android:textStyle="italic" />
 
                     <Spinner
                         android:id="@+id/spinner_depertment"
@@ -110,68 +114,69 @@
                         android:spinnerMode="dropdown" />
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="@dimen/dimen_10dp"
 
+                <LinearLayout
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dimen_10dp"
                     android:gravity="center"
-                    android:padding="@dimen/dimen_10dp"
-                    >
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_10dp">
+
                     <TextView
-                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Semester : "
                         android:textColor="@color/Black"
-                        android:textStyle="italic"
-                        android:textSize="@dimen/dimen_20dp"/>
+                        android:textSize="@dimen/dimen_20dp"
+                        android:textStyle="italic" />
+
                     <Spinner
                         android:id="@+id/spinner2_semester"
 
                         android:layout_width="93dp"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:backgroundTint="@color/colorAccent"
-                        android:spinnerMode="dropdown"
-                        />
+                        android:gravity="center"
+                        android:spinnerMode="dropdown" />
 
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_marginTop="@dimen/dimen_10dp"
-
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    >
 
-                    <android.support.design.widget.TextInputLayout
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Subject Code"
-                        android:textColorHint="@color/colorAccent"
                         android:focusedByDefault="false"
-                        >
+                        android:hint="Subject Code"
+                        android:textColorHint="@color/colorAccent">
+
                         <EditText
-                            android:focusedByDefault="false"
-                            android:gravity="center"
                             android:id="@+id/editText_sub_code"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/colorPrimary"
                             android:ems="10"
+                            android:focusedByDefault="false"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:nextFocusDown="@id/button_submit"
                             android:textColor="@color/colorPrimary"
                             android:textStyle="bold"
-                            android:inputType="number"
                             app:layout_constraintEnd_toEndOf="@+id/spinner2_semester"
                             app:layout_constraintStart_toStartOf="@+id/spinner2_semester"
-                            app:layout_constraintTop_toBottomOf="@+id/spinner2_semester"
-                            android:nextFocusDown="@id/button_submit"
-                            android:backgroundTint="@color/colorPrimary"/>
+                            app:layout_constraintTop_toBottomOf="@+id/spinner2_semester" />
 
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <Button
@@ -180,13 +185,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="30dp"
-                    android:background="@drawable/theme_button"
-                    android:textColor="@color/white1"
                     android:layout_marginEnd="8dp"
+                    android:background="@drawable/theme_button"
                     android:drawableEnd="@drawable/ic_assignment_black_24dp"
                     android:fontFamily="@font/fonts"
                     android:padding="@dimen/dimen_10dp"
                     android:text="Begin Class "
+                    android:textColor="@color/white1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteY="675dp" />
@@ -196,8 +201,6 @@
         </LinearLayout>
 
     </ScrollView>
-
-
 
 
 </LinearLayout>

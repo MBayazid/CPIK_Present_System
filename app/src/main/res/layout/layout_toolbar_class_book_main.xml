@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        android:weightSum="2"
-      >
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <LinearLayout
 
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="horizontal"
 
             >
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_assignment_black_24dp"
-                android:tint="@color/Azure"/>
+                android:tint="@color/Azure" />
 
             <EditText
-                android:focusedByDefault="false"
                 android:id="@+id/tollbar_subcode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusedByDefault="false"
                 android:gravity="center"
                 android:hint="SubjectCode"
                 android:inputType="number"
@@ -40,11 +41,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_weight="1"
+
+            android:orientation="horizontal"
 
             >
 
@@ -52,14 +53,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_person_black_24dp"
-                android:tint="@color/Azure"/>
+                android:tint="@color/Azure" />
 
             <EditText
-                android:focusedByDefault="false"
-
                 android:id="@+id/tollbar_roll"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusedByDefault="false"
                 android:gravity="center"
                 android:hint="College Roll"
                 android:inputType="number"
@@ -67,20 +68,20 @@
                 android:textColor="@color/white1"
                 android:textSize="19sp"
                 android:textStyle="italic|bold" />
+
             <TextView
-                android:layout_marginStart="@dimen/dimen_10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:fontFamily="@font/apercu_regular"
                 android:text="(Was Present ? )"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white1"
                 android:textSize="15sp"
                 android:textStyle="normal"
-                android:fontFamily="@font/apercu_regular"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
 
         </LinearLayout>
     </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,7 +1,7 @@
 package com.bayazid.cpik_present_system.Network_Cheaker;
 
 import android.graphics.Bitmap;
-import android.support.v4.util.LruCache;
+import androidx.collection.LruCache;
 
 import com.android.volley.toolbox.ImageLoader;
 
@@ -13,17 +13,17 @@ import com.android.volley.toolbox.ImageLoader;
 public class BitmapCache extends LruCache<String, Bitmap> implements
         ImageLoader.ImageCache {
 
-    public static int getDefaultLruCacheSize() {
+    private static int getDefaultLruCacheSize() {
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
         final int cacheSize = maxMemory / 8;
         return cacheSize;
     }
 
-    public BitmapCache() {
+    BitmapCache() {
         this(getDefaultLruCacheSize());
     }
 
-    public BitmapCache(int sizeInKiloBytes) {
+    private BitmapCache(int sizeInKiloBytes) {
         super(sizeInKiloBytes);
     }
 

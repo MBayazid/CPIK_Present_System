@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.bayazid.librarycpik.RippleEffect.RippleView
+        <com.m.rippleview.RippleView
             android:id="@+id/rtake_attendance_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,9 +51,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-        </com.bayazid.librarycpik.RippleEffect.RippleView>
+        </com.m.rippleview.RippleView>
 
-        <com.bayazid.librarycpik.RippleEffect.RippleView
+        <com.m.rippleview.RippleView
             android:id="@+id/rview_attendance_book_button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,9 +77,9 @@
                 android:textSize="@dimen/dimen_20dp"
                 app:layout_constraintEnd_toEndOf="@+id/take_attendance_button"
                 app:layout_constraintHorizontal_bias="0.461" />
-        </com.bayazid.librarycpik.RippleEffect.RippleView>
+        </com.m.rippleview.RippleView>
 
-        <com.bayazid.librarycpik.RippleEffect.RippleView
+        <com.m.rippleview.RippleView
             android:id="@+id/redit_already_taken_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,9 +103,9 @@
                 android:textAllCaps="false"
                 android:textColor="@color/button_text_color"
                 android:textSize="@dimen/dimen_20dp" />
-        </com.bayazid.librarycpik.RippleEffect.RippleView>
+        </com.m.rippleview.RippleView>
 
-        <com.bayazid.librarycpik.RippleEffect.RippleView
+        <com.m.rippleview.RippleView
             android:id="@+id/rview_scheduled_attendance_book_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,8 +132,8 @@
                 android:textSize="@dimen/dimen_20dp"
 
                 />
-        </com.bayazid.librarycpik.RippleEffect.RippleView>
-        <com.bayazid.librarycpik.RippleEffect.RippleView
+        </com.m.rippleview.RippleView>
+        <com.m.rippleview.RippleView
             android:id="@+id/rsingle_std_query__button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -159,9 +159,9 @@
             android:textSize="@dimen/dimen_20dp"
 
             />
-        </com.bayazid.librarycpik.RippleEffect.RippleView>
+        </com.m.rippleview.RippleView>
 
-        <com.bayazid.librarycpik.RippleEffect.RippleView
+        <com.m.rippleview.RippleView
             android:id="@+id/rsign_out_button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
                 android:textSize="@dimen/dimen_20dp"
 
                 />
-        </com.bayazid.librarycpik.RippleEffect.RippleView>
+        </com.m.rippleview.RippleView>
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

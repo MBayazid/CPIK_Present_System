@@ -20,7 +20,8 @@
         android:paddingTop="@dimen/dimen_40dp">
 
 
-        <com.mikhaellopez.circularimageview.CircularImageView
+
+        <com.circular_profile_picture.CircularView
             android:id="@+id/header_image"
             android:layout_width="65dp"
             android:layout_height="65dp"

@@ -2,7 +2,7 @@ package com.bayazid.cpik_present_system;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 
 import com.bayazid.cpik_present_system.Auth_Profile.Auth_MainActivity;
 import com.bayazid.cpik_present_system.Auth_Profile.GeneralUser_Profile;
-import com.bayazid.cpik_present_system.Auth_Profile.Teachers_Panel;
 import com.bayazid.cpik_present_system.DATA_SECTOR.Session;
 
 public class SplashScreen_Activity extends AppCompatActivity {

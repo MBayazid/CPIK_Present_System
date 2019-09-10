@@ -2,19 +2,19 @@ package com.bayazid.cpik_present_system.Auth_Profile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,14 +29,14 @@ import com.bayazid.cpik_present_system.R;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.mikhaellopez.circularimageview.CircularImageView;
+import com.circular_profile_picture.*;
 
 public class GeneralUser_Profile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Session session;
     private TextView headerName, headerPhoneNumber;
     private TextView headerEmail;
-    private CircularImageView headerPhoto;
+    private CircularView headerPhoto;
     private CommonFunctions commonFunctions;
     private View view;
 
@@ -69,7 +69,7 @@ public class GeneralUser_Profile extends AppCompatActivity
         headerEmail = (TextView) headerView.findViewById(R.id.header_email);
         headerName = (TextView) headerView.findViewById(R.id.header_name);
         headerPhoneNumber = (TextView) headerView.findViewById(R.id.header_Mobile);
-        headerPhoto = (CircularImageView) headerView.findViewById(R.id.header_image);
+        headerPhoto = (CircularView) headerView.findViewById(R.id.header_image);
         //Gone ByDefult
         headerEmail.setVisibility(View.GONE);
         headerName.setVisibility(View.GONE);

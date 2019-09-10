@@ -2,18 +2,16 @@ package com.bayazid.cpik_present_system;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
-import android.view.View;
-import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.mikhaellopez.circularimageview.CircularImageView;
+import com.circular_profile_picture.*;
 
 public class CommonFunctions {
     private int dialogResult;
 
-    public void ImageGlider(Context context, String PhotoUri, CircularImageView circularImageView){
+    public void ImageGlider(Context context, String PhotoUri, CircularView circularImageView){
         //Round image view
         RequestOptions options = new RequestOptions()
                 .circleCrop()

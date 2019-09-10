@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="@color/nav_drawer_blue_theam_color"
     >
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         android:background="@color/colorPrimary">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,7 +26,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_std_recycle_view"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -39,7 +39,7 @@
                     layout="@layout/layout_toolbar_class_book_main"/>
 
 
-            </android.support.v7.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
             <LinearLayout
          android:layout_margin="@dimen/dimen_10dp"
                 android:layout_width="match_parent"
@@ -111,8 +111,8 @@
 
 
 
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 <include layout="@layout/attendance_recycler"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
